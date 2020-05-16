@@ -1,0 +1,6 @@
+Criterios Generales Sprint 2:
+1.	Utilizar Flex-box para sistema de grillas.
+2.	Utilizar variables para definir colores en CSS
+3.	Font: Roboto
+4.	Color de marca: #E66F23
+5.	Copiar lo mas parecido la pag kittenfy.com

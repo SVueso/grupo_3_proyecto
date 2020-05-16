@@ -1,0 +1,7 @@
+Sprint 2
+
+Retrospectiva:
+
+1. No se considero diseño responsive, pero tampoco estaba dentro del campo de conocimiento.
+2. Se dejo el trabajo hasta ultimo momento y se termino sobre el deadline.
+3. La partes se hicieron por separada y no se unificaron diseños/criterios despues de realizarlas.
