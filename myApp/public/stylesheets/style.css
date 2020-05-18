@@ -15,10 +15,11 @@ body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
-
+/* ESTE A SE QUEDA? O SE VA, MEDIO INUTIL */
 a {
   color: #00B7FF;
 }
+
 
 .container-footer{
 width: 100%;
