@@ -20,8 +20,21 @@
   }
   
   .centrado{
-      width: 80%;
+      width: 90%;
       display: flex;
       justify-content: space-evenly;
       background-color: lime;
+  }
+  
+  .producto-box{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .foto-box{
+   width: 55%;
+  }
+
+  .precio-box{
+    width: 40%;
   }
