@@ -5,7 +5,7 @@
 
 /*<><><><><><VARIABLES><><><><><> */
 :root{
-
+ --color-icons : black;
 }
 
 
@@ -15,7 +15,52 @@ body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
-
+/* ESTE A SE QUEDA? O SE VA, MEDIO INUTIL */
 a {
   color: #00B7FF;
+}
+
+
+.container-footer{
+width: 100%;
+/* background-color: chartreuse; */
+height: 300px;
+display: flex;
+justify-content: center;
+}
+
+.footer{
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  /* background-color: cyan; */
+}
+
+.centrado{
+display: flex;
+justify-content: space-evenly;
+/* align-items: center; */
+/* background-color: darkgreen; */
+width: 95%;
+}
+
+.ul{
+padding: 5px;
+display: flex;
+justify-content: space-between;
+}
+
+li{
+line-height : 25px;
+}
+
+ul{
+list-style: none;}
+/* redes , mini fotos */
+.redes a{
+  color : var(--color-icons)
+}
+
+.fab fa-paypal{
+  color : var(--color-icons)
 }
