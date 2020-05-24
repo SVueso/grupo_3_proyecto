@@ -21,7 +21,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-
+app.use('/cart', (req,res) => res.render('cart'));
+app.use('/register', (req,res) => res.render('register'));
+app.use('/login', (req,res) => res.render('login'));
+app.use('/product-edit', (req,res) => res.render('product-edit-form'));
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
