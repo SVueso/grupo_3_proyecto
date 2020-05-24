@@ -1,0 +1,162 @@
+/*====== Fonts ======*/
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap');
+
+
+/*====== Variables ======*/
+:root {
+    --brand: #E66F23;
+    --cart-bkgd: #343535;
+    --gray: #666666;
+    --light-gray: #bbb9b9;
+  }
+
+
+/*====== Basics ======*/
+
+*{
+    box-sizing: border-box;
+    font-family: roboto;
+}
+
+body::-webkit-scrollbar {
+    width: 1em;
+  }
+   
+body::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  }
+   
+body::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
+  }
+
+.fa-shopping-cart{
+    color:var(--cart-bkgd);
+}
+
+.btn-cart {
+    display: flex;
+    justify-content: flex-end;
+}
+
+body{
+    color: white;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+.fa-times{
+font-size: 1.6em;
+}
+
+.fa-times:hover{
+    color: var(--brand)
+}
+.test{
+    height:200vh;
+    width:100%;
+    background-color: yellow;
+}
+
+.overlay{
+    display: none;
+    z-index: 99;
+    background-color: var(--cart-bkgd);
+    width: 400px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 0 15px;
+    transition: 0.5s;
+    overflow: scroll;
+}
+
+.top-cart{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+button{
+    width: 100%;
+    border: none;
+    background-color: var(--brand);
+    padding: 3%;
+    color: white;
+    font-weight: 600;
+    font-size: 1.2em;
+}
+
+button:hover{
+    /* font-size:1.5em; */
+    background-color: white;
+    color: var(--brand);
+}
+.product-cart{
+    overflow: hidden;
+}
+.one-quarter{
+    float: left;
+    width: 25%;
+}
+.one-quarter img{
+    width:100%;
+}
+
+.three-quarter{
+    float: left;
+    width: 75%;
+    padding-left:3%;
+}
+
+.three-quarter p{
+    margin: 0 0 2% 1%;
+}
+
+.quantity-price-container{
+    margin: 0 0 2% 1%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.subtotal-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.tax-msg{
+    color: var(--light-gray);
+}
+.footer-cart{
+    width:370px;
+    position: fixed;
+    bottom:0%;
+    background-color: var(--cart-bkgd);
+    padding-bottom: 2%;
+}
+
+.footer-cart h3{
+    margin: 1% 0;
+}
+.spacer{
+    height: 20vh;
+}
+@media (max-width:500px){
+   
+    .overlay{
+        background-color: var(--cart-bkgd);
+        width: 100%;
+        padding: 0 4%;
+        min-width: 340px;
+    }
+    .footer-cart{
+        min-width: 315px;
+        width: 92%;
+        right:4%;
+    }
+
+}
