@@ -1,0 +1,63 @@
+*{
+    box-sizing: border-box;
+    text-decoration: none;
+  }
+  
+  
+  /*<><><><><><VARIABLES><><><><><> */
+  :root{
+    --color-icons : black;
+   }
+   
+  
+  
+  
+  /* ESTE A SE QUEDA? O SE VA, MEDIO INUTIL */
+  
+  
+  .container-footer{
+  width: 100%;
+  /* background-color: chartreuse; */
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  }
+  
+  .footer{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    /* background-color: cyan; */
+  }
+  
+  .centra2{
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+  /* background-color: darkgreen; */
+  width: 100%;
+  margin-top: 20px;
+  }
+  
+  .ul{
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  text-align: right;
+  }
+  
+  ul li{
+  line-height : 25px;
+  }
+  
+  ul{
+  list-style: none;}
+  /* redes , mini fotos */
+  .redes a{
+    color : var(--color-icons);
+    text-decoration: none;
+  }
+  
+  .fab fa-paypal{
+    color : var(--color-icons)
+  }

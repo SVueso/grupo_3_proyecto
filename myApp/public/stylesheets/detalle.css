@@ -1,0 +1,422 @@
+*{
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+
+/*<><><><><><VARIABLES><><><><><> */
+:root{
+ --color-icons : black;
+}
+
+a{
+  color: var(--color-icons);
+}
+
+body{
+  line-height: 1.563;
+  font-size: 16px;
+  font-family: Cabin,sans-serif;
+  color: #343535;
+  font-weight: 400;
+  font-style: normal;
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+}
+
+
+
+/* ACA SON CLASS */
+.main{
+  padding-top: 80px;
+  padding-bottom: 30px;
+  display: block;
+}
+
+.container{
+    /* background-color: aqua; */
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 0 20px;
+    
+}
+
+.centrado{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    margin-left: auto;
+    margin-right: auto;
+    /* background-color: lime; */
+    /* border: black 4px solid; */
+    flex-direction: column;
+    
+}
+
+.producto-box{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.product-description div{
+  margin-top: 25px;
+  text-align: left;
+}
+
+.description-specifications li{
+  list-style-type: disc;
+  
+
+}
+.foto-box{
+ width: 55%;
+ /* background-color: aliceblue;  */
+}
+
+.foto-box-img-box{
+  width: 100%;
+}
+
+.foto-box-img-box img{
+  width: 100%;
+}
+
+.other-img-box{
+  /* border: black 2px solid; */
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.other-img{
+  width: 23%;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.other-img img{
+  width: 100%;
+  background-color: transparent;
+}
+
+.product-box{
+  width: 40%;
+  /* background-color: azure; */
+  padding-left: 45px;
+  padding-right: 25px;
+}
+
+.product-box-box{
+  padding-top: 0px;
+  text-align: center;
+}
+
+.product-tilte{
+  margin: 15px 0;
+  
+  word-wrap: break-word;
+  font-size: 2.25em;
+  display: block;
+  font-family: Cabin,sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  margin: 0 0 0.5em;
+  margin-bottom: 0.5em;
+  line-height: 1.4;
+  text-rendering: optimizeLegibility;
+}
+
+.padding-top{
+  padding-top: 20px;
+}
+
+.precio-box{
+  /* border: solid green; */
+  justify-content: center;
+  display: flex;
+  margin-top: 15px;
+}
+
+  .precio-total{
+    color: red;
+    margin-right: 5px;
+    /* agregar el tachado del precio */
+  }
+  
+  .precio-final{
+    color: black;
+    margin-left: 5px;
+  }
+  .carrito-hud{
+    height: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 35px;
+  }
+
+  .carrito-box-amount{
+    width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .formas-productos{
+      width: 100%;
+  }
+  /* .forma-producto{
+    
+  } */
+
+  .forma-box{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+    
+  }
+
+  /* .titulo-forma{
+
+  } */
+
+  .forma{
+    width: 28%;
+    border: solid var(--color-icons) 1px;
+  }
+
+  .button-add-less{
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+
+  .numberofproducts{
+    width: 10%;
+  }
+  .carrito-box-buttons{
+    width: 100%;
+  }
+
+  .button-add,.button-buy{
+    font-family: Cabin,sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 12px 20px;
+    font-size: 0.8125em;
+    width: 100%;
+
+    background-color: #fff;
+    border: 1px solid #343535;
+    color: #343535;
+  }
+  .button-buy{
+    margin-top: 5px;
+    background-color: #343535;
+    color: #fff;
+  }
+
+
+.formas-de-pago{
+/* border: solid black 2px; */
+margin-top: 120px;
+}
+
+.formas-de-pago-title{
+font-size: 14px;
+  font-family: Lato;
+  text-align: center;
+  color: rgb(33, 43, 54);
+  line-height: 34px;
+  margin: 0px;
+  font-weight: bold;
+}
+
+.formas-de-pago-foto-box{
+display: flex;
+flex-wrap: wrap;
+width: 100%;
+justify-content: space-evenly;
+}
+.foto-formas-de-pago{
+width: 18%;
+margin: 0px 5px;
+}
+
+.foto-formas-de-pago-img{
+width: 100%;
+}
+
+.product-recommendations{
+width: 100%;
+}
+.section-header{
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.section-header h2{
+  font-size: 1.87em;
+}
+
+.hr-small{
+  border-width: 1px 0 0 0;
+  width: 50px;
+  margin: 60px auto;
+  border-top: solid black 1px;
+
+}
+
+.foto-description{
+  width: 100%;
+
+}
+
+.products-recomended{
+  display: flex;
+  justify-content: center;
+}
+.product-recomended-vip{
+  width: 24%;
+  padding-left: 30px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.wraper{
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+
+.image-wraper{
+position: relative;
+width: 100%;
+display: table;
+table-layout: fixed;
+}
+
+.image-wraper-img{
+  max-width: 415.0px;
+  max-height: 415px;
+  width: 100%;
+}
+.social-media{
+display: flex;
+justify-content: space-evenly;
+}  
+
+.social-media a{
+text-decoration: none;
+color: var(--color-icons);
+font-size: 12px;
+}
+
+hr{
+  height: 0;
+  clear: both;
+
+}
+
+.separador-footer{
+  border-width: 1px 0 0 0;
+  width: 50px;
+  margin: 60px auto;
+  border-top: solid black 1px;
+
+}
+
+
+/* css del footer */
+.container-footer{
+width: 100%;
+/* background-color: chartreuse; */
+height: 300px;
+display: flex;
+justify-content: center;
+}
+
+.footer{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  /* background-color: cyan; */
+}
+
+.centra2{
+display: flex;
+justify-content: space-between;
+/* align-items: center; */
+/* background-color: darkgreen; */
+width: 100%;
+margin-top: 20px;
+}
+
+.ul{
+padding: 5px;
+display: flex;
+justify-content: space-between;
+}
+
+ul li{
+line-height : 25px;
+}
+
+ul{
+list-style: none;}
+/* redes , mini fotos */
+.redes a{
+  color : var(--color-icons);
+  text-decoration: none;
+}
+
+.fab fa-paypal{
+  color : var(--color-icons)
+}
+
+.ul-final-footer{
+  padding: 5px;
+display: flex;
+justify-content: space-between;
+text-align: right;
+}
+
+@media (max-width:500px){
+body{
+  padding: 0 0;
+}
+li{
+  text-align: center;
+}
+ul{
+  padding-left: 0px;
+}
+.foto-box{width: 100%;}
+
+.product-box{width: 100%;}
+
+.products-recomended{
+  flex-wrap: wrap;
+}
+.product-recomended-vip{
+  width: 45%;
+}
+.producto-box{
+  flex-direction: column;
+}
+.centra2{ 
+  flex-direction: column;
+  justify-content: center;
+}
+.ul{
+  justify-content: center;
+}
+.redes ul li{
+  text-align: center;
+}
+.ul-final-footer{
+  justify-content: center;
+}
+
+}
