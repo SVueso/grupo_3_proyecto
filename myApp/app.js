@@ -21,6 +21,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/detalle', (req,res) => res.render('detalle'))
 app.use('/cart', (req,res) => res.render('cart'));
 app.use('/register', (req,res) => res.render('register'));
 app.use('/login', (req,res) => res.render('login'));
