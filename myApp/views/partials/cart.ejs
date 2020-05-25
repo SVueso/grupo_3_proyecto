@@ -10,16 +10,11 @@
     
 </head>
 <body>
-    <div class="btn-cart"onclick="openNav()">
-        <a href="#">
-            <i class="fas fa-shopping-cart"></i>
-        </a>
-    </div>
-    <div class="test">a</div>
-    <div id="myNav" class="overlay">
+    
+    <div id="myCart" class="cart">
         <div class="top-cart">
             <h2>Your Cart</h2>
-            <a class="closebtn" href="javascript:void(0)" onclick="closeNav()">
+            <a class="closebtn" href="javascript:void(0)" onclick="closeCart()">
                 <i class="fas fa-times"></i>
             </a>
         </div>
@@ -82,16 +77,16 @@
                 <h3>24.99</h3>
             </div>
             <div class="tax-msg">Taxes and shipping calculated at checkout</div>
-            <button>CHECKOUT</button>
+            <button class="cart-btn">CHECKOUT</button>
         </div>
     </div> 
     <script>
-        function openNav() {
-          document.getElementById("myNav").style.display = "block";
+        function openCart() {
+          document.getElementById("myCart").style.display = "block";
         }
         
-        function closeNav() {
-          document.getElementById("myNav").style.display = "none";
+        function closeCart() {
+          document.getElementById("myCart").style.display = "none";
         }
         </script>
 </body>

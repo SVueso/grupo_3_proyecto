@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kittenfy | Cat Themed Products for Humans &amp; Their Owners</title>
   <link rel="stylesheet" href="/stylesheets/style.css">
-  <%- include('./partials/header.ejs') %>
   <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
 </head>
 <body>
+<%- include('./partials/header.ejs') %>
 <div class="todo">
 
   <div class="imagenInicio">
@@ -37,7 +37,7 @@
           <div>Windmill Cat Toy</div>
           <div>-</div>
           <div class="money">$24.99</div>
-          <div id="ComparePrice"><div class="money">$33.00</div></div>
+          <div class="comparePrice"><div class="money">$33.00</div></div>
         </a>
       </div>
       <div class="producto">
@@ -49,7 +49,7 @@
           <div>London Cat Tree</div>
           <div>-</div>
           <div class="money">$134.99</div>
-          <div id="ComparePrice"><div class="money">$143.00</div></div>
+          <div class="comparePrice"><div class="money">$143.00</div></div>
         </a>
       </div>
       <div class="producto">
@@ -77,7 +77,7 @@
           <div>Banana Cat Bed</div>
           <div>-</div>
           <div class="money">$29.99</div>
-          <div id="ComparePrice"><div class="money">$60.00</div></div>
+          <div class="comparePrice"><div class="money">$60.00</div></div>
         </a>
       </div>
       <div class="producto">
@@ -89,7 +89,7 @@
           <div>Flopping Fish Cat Toy</div>
           <div>-</div>
           <div class="money">$24.99</div>
-          <div id="ComparePrice"><div class="money">$30.00</div></div>
+          <div class="comparePrice"><div class="money">$30.00</div></div>
         </a>
       </div>
     </div>
@@ -178,7 +178,7 @@
   </div>
 </div>
 
-  <div class="BeInTheKnow">    
+  <div class="beInTheKnow">    
       <div class="text-center">
         <h2 class="bitk">Be in the Know</h2>
       </div>
@@ -193,7 +193,7 @@
         <input type="hidden" name="contact[tags]" value="newsletter">
         <div>
           <div class="email-subscribe">
-            <input type="email" value="" placeholder="   Your email" name="contact[email]" id="Email">
+            <input type="email" value="" placeholder="   Your email" name="contact[email]" class="email">
               <button class="subscribe" type="submit" aria-label="Subscribe">Subscribe</button>
 
           </div>

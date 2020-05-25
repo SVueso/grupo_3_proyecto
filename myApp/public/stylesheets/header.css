@@ -7,8 +7,17 @@ header {
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
-    padding: 0 30px;
-    width: 100%;
+    width: 95%;
+    margin:auto;
+    height:50px;
+}
+
+.logo{
+  height:100%;
+}
+
+.logo img{
+height:100%;
 }
 
 .searchHeader {
@@ -79,25 +88,47 @@ header {
     right: 45px;
     font-size: 60px;
   }
-  
-  @media screen and (max-height: 450px) {
-    .overlay a {font-size: 20px}
-    .overlay .closebtn {
-    font-size: 40px;
-    top: 15px;
-    right: 35px;
-    }
-  }
 
 .busqueda-compra{ 
     display: flex;
     flex-wrap: wrap;
-    width: 6%;
+}
+
+.busqueda-compra a{ 
+  text-decoration: none;
+  color:black;
 }
 
 .busqueda-compra li {
     height: 100%;
     font-size: x-large;
-    margin-right: 3%;
+    margin-right: 10px;
+    padding-top: 15%;
 }
 
+.menu-btn{
+  font-size:30px;
+  color:black:
+}
+
+@media screen and (max-height: 450px) {
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+  font-size: 40px;
+  top: 15px;
+  right: 35px;
+  }
+}
+
+@media (max-width:500px){
+  .menu-btn {
+    margin-top: -0.7%;
+  }
+  header{
+    height: 35px;
+  }
+  .busqueda-compra li {
+    padding-top: 5%
+  }
+  
+}

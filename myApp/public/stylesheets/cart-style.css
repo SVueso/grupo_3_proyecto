@@ -18,19 +18,6 @@
     font-family: roboto;
 }
 
-body::-webkit-scrollbar {
-    width: 1em;
-  }
-   
-body::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  }
-   
-body::-webkit-scrollbar-thumb {
-    background-color: darkgrey;
-    outline: 1px solid slategrey;
-  }
-
 .fa-shopping-cart{
     color:var(--cart-bkgd);
 }
@@ -40,13 +27,7 @@ body::-webkit-scrollbar-thumb {
     justify-content: flex-end;
 }
 
-body{
-    color: white;
-}
-a{
-    text-decoration: none;
-    color: white;
-}
+
 .fa-times{
 font-size: 1.6em;
 }
@@ -54,13 +35,8 @@ font-size: 1.6em;
 .fa-times:hover{
     color: var(--brand)
 }
-.test{
-    height:200vh;
-    width:100%;
-    background-color: yellow;
-}
 
-.overlay{
+.cart{
     display: none;
     z-index: 99;
     background-color: var(--cart-bkgd);
@@ -78,10 +54,11 @@ font-size: 1.6em;
     display:flex;
     justify-content: space-between;
     align-items: center;
+    color:white;
 }
 
 
-button{
+.cart-btn{
     width: 100%;
     border: none;
     background-color: var(--brand);
@@ -91,7 +68,7 @@ button{
     font-size: 1.2em;
 }
 
-button:hover{
+.cart-btn:hover{
     /* font-size:1.5em; */
     background-color: white;
     color: var(--brand);
@@ -111,6 +88,7 @@ button:hover{
     float: left;
     width: 75%;
     padding-left:3%;
+    color:white;
 }
 
 .three-quarter p{
@@ -123,9 +101,16 @@ button:hover{
     justify-content: space-between;
 }
 
+.quantity-cart a, .closebtn{
+    color:white;
+    text-decoration: none;
+}
+
 .subtotal-container{
     display: flex;
     justify-content: space-between;
+    color:white;
+    padding-left:3%;
 }
 
 .tax-msg{
@@ -147,7 +132,7 @@ button:hover{
 }
 @media (max-width:500px){
    
-    .overlay{
+    .cart{
         background-color: var(--cart-bkgd);
         width: 100%;
         padding: 0 4%;
