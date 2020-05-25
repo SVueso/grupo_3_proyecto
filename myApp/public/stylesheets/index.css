@@ -1,0 +1,13 @@
+a{
+text-decoration: none;
+color: black;
+font-size: 20px;
+}
+button{
+    border-radius: 5px;
+    margin: 5px 5px;
+}
+p{
+    text-indent: 1%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
