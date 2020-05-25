@@ -61,6 +61,7 @@ body {
 .productos a {
   color: #343535;
   text-decoration: none;
+  width: 30%;
 }
 
 .productos {
@@ -182,7 +183,7 @@ body {
   padding: 0;
   margin: 0;
   margin-bottom: 7%;
-  max-width: 280px;
+  width: 100%;
 }
 
 .containerFC {
