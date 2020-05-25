@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kittenfy</title>
+    <link rel="stylesheet" href="stylesheets/header.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>  
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+</head>
+<body>
+<header>
+      <span style="font-size:30px;cursor:pointer;padding-left: 20px;" onclick="openNav()">&#9776;</span>
+        <div id="myNav" class="overlay">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          <div class="overlay-content">
+            <div class="searchHeader">
+            <form action="/search" method="get" style="width: 100%;">
+              <input type="search" placeholder="   Search Our Store" value="" id="Search">
+                <span>
+                  <button id="Submit" type="submit">
+                    SEARCH
+                   </button>
+                </span>
+            </form>
+            </div>
+
+                  <ul class="mobile-nav">
+                      <li class="menu">
+                          <a href="/collections/for-cats">FOR CATS</a>
+                      </li>
+                    <ul>
+                      <li>
+                          <a href="/collections/cat-trees-and-shelves">
+                            Trees &amp; Shelves</a>
+                      </li>                    
+                      <li>
+                          <a href="/collections/toys">
+                            Toys
+                          </a>
+                      </li>
+                                
+                      <li>
+                          <a href="/collections/beds">
+                            Beds
+                          </a>
+                      </li>
+                                
+                      <li>
+                          <a href="/collections/costumes">
+                            Costumes
+                          </a>
+                      </li>
+                    </ul>
+    
+                      <li class="menu">
+                          <a href="/collections/for-humans">FOR HUMANS</a>
+                            <ul>
+                              
+                                <li>
+                                  <a href="/collections/leggings">
+                                      Leggings
+                                  </a>
+                                </li>
+                                
+                                <li>
+                                  <a href="/collections/mugs">
+                                      Mugs
+                                  </a>
+                                </li>
+                                
+                                <li>
+                                  <a href="/collections/socks-and-gloves">
+                                      Socks
+                                  </a>
+                                </li>
+                                
+                                <li>
+                                  <a href="/collections/phone-cases">
+                                      Phone Cases
+                                  </a>
+                                </li>
+                                
+                                <li>
+                                  <a href="/collections/t-shirts">
+                                      T-Shirts
+                                  </a>
+                                </li>
+                                
+                                <li>
+                                  <a href="/collections/cat-jewelry">
+                                      Jewelry
+                                  </a>
+                                </li>
+                              
+                            </ul>
+                          </li>
+                
+                          <li>
+                            <a href="/collections/sale">
+                                SALE
+                            </a>
+                          </li>
+                
+                          <li>
+                            <a href="/pages/contact-us">
+                                CONTACT US
+                            </a>
+                          </li>
+                
+                          <li>
+                            <a href="/pages/about-us">
+                                ABOUT US
+                            </a>
+                          </li>
+                
+                        <li><a href="/search">Search</a></li>
+                      
+                        <li><a href="/">Home</a></li>
+                      
+                        <li><a href="/cart" class="tdf_cart_icon">Cart</a></li>
+                      
+                        <li><a href="/policies/refund-policy">Refund Policy</a></li>
+                      
+                        <li><a href="/policies/privacy-policy">Privacy Policy</a></li>
+                      
+                        <li><a href="/policies/terms-of-service">Terms of Service</a></li>
+                      
+                    </ul>
+          </div>
+                
+        <script>
+        function openNav() {
+          document.getElementById("myNav").style.width = "30%";
+        }
+        
+        function closeNav() {
+          document.getElementById("myNav").style.width = "0";
+        }
+        </script>
+
+  </div>
+          
+          <div class="logo">
+            <a href="/">
+                <img src="/images/logo-kittenfy.png" alt="">
+            </a>
+          </div>
+          <div class="busqueda-compra">
+                <li>
+                    <a href="/search">
+                          <i class="fas fa-search"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="/cart">
+                          <i class="fas fa-shopping-cart" style="height: 100%;"></i>
+                    </a>
+                </li>
+          </div>  
+</header>
+</body>
+</html>
