@@ -140,12 +140,14 @@ body{
   .precio-total{
     color: red;
     margin-right: 5px;
+    text-decoration: line-through;
     /* agregar el tachado del precio */
   }
   
   .precio-final{
     color: black;
     margin-left: 5px;
+    
   }
   .carrito-hud{
     height: 100px;
