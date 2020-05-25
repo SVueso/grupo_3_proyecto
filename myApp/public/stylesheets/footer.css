@@ -32,11 +32,11 @@
   
   .centra2{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   /* align-items: center; */
   /* background-color: darkgreen; */
   width: 100%;
-  margin-top: 20px;
+  margin-top: 30px;
   }
   
   .ul{
@@ -46,7 +46,7 @@
   text-align: right;
   }
   
-  ul li{
+  .li{
   line-height : 25px;
   }
   
@@ -61,3 +61,37 @@
   .fab fa-paypal{
     color : var(--color-icons)
   }
+
+  @media(max-width:800px){
+    .footer{
+      display: inline;
+    }
+    
+    .li{
+      text-align: center;
+    }
+
+    ul{
+      padding-left: 0px;
+    }
+
+    .centra2{
+      flex-direction: column;
+      justify-content: center;
+    }
+    .ul{
+      display:flex;
+      justify-content: center;
+      padding-left: 0px;
+     
+    }
+    .redes ul li{
+      text-align: center;
+    }
+    .ul-final-footer{
+      display: flex;
+      justify-content: center;
+    }
+    
+    }
+  

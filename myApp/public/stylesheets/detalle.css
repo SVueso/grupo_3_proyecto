@@ -384,7 +384,7 @@ justify-content: space-between;
 text-align: right;
 }
 
-@media (max-width:500px){
+@media (max-width:800px){
 body{
   padding: 0 0;
 }
