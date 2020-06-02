@@ -2,6 +2,15 @@ Sprint 2
 
 Retrospectiva:
 
-1. No se considero diseño responsive, pero tampoco estaba dentro del campo de conocimiento.
+1. No se considero diseï¿½o responsive, pero tampoco estaba dentro del campo de conocimiento.
 2. Se dejo el trabajo hasta ultimo momento y se termino sobre el deadline.
-3. La partes se hicieron por separada y no se unificaron diseños/criterios despues de realizarlas.
+3. La partes se hicieron por separada y no se unificaron diseï¿½os/criterios despues de realizarlas.
+
+Sprint 3
+
+Retrospectiva:
+
+1. Mejoramos respecto al diseï¿½o responsive.
+2. Se trabajo de forma individual respecto al css y html, generando problemas al trabajar en conjunto y en el diseï¿½o poco uniforme de la pagina.
+3. No consideramos lo suficiente las interrelaciones entre paginas y diseï¿½os, dificultando la unificacion del proyecto.(No nos dimos cuenta que el carrito iba adentro del header )
+4. No consideramos la union de las partes del proyecto al momento de nombrar las clases.
