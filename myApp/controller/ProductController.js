@@ -30,6 +30,9 @@ const productController = {
     },
     productEdit: async(req,res)=>{
         res.render('product-edit-form',{csspath,compare:"/stylesheet/product-edit-form-style"})
+    },
+    productos: async (req,res) => {
+        res.render('allProducts')
     }
 }
 
