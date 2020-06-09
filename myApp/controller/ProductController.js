@@ -1,11 +1,36 @@
 const fs = require('fs');
 const path = require('path');
 
-let dbpath = path.join(__dirname, `../ASIGNARRUTA`);
-let db = fs.readFileSync(filePath, 'utf-8');
+// let dbpath = path.join(__dirname, `../ASIGNARRUTA`);
+// let db = fs.readFileSync(filePath, 'utf-8');
+var csspath=["/stylesheet/index",
+                 "/stylesheet/style",
+                 "/stylesheet/detalle.css",
+                 "/stylesheet/header",
+                 "/stylesheet/footer",
+                 "/stylesheet/product-edit-form-style",
+                 '/stylesheet/register-login-style',
+                 "/stylesheet/cart-style.css",
+                 ];
+                //  solucionar el tema del footer para poder tenerlo en la vista siempre, 
+                // o ver si se fusiona a todas las vistas necesarias,
 
-CONST productController = {
+var compare
 
+const productController = {
+    index:(req,res)=>{
+    
+        res.render('index',{csspath,compare:"/stylesheet/index",title: 'Sprint 2 del Grupo 3', saludo:'Buenas!'})
+    },
+    home: async (req,res)=>{
+        res.render('home',{csspath,compare:"/stylesheet/style"})
+    },
+    detalle:(req,res)=>{
+        res.render('detalle',{csspath,compare:"detalle"})
+    },
+    productEdit: async(req,res)=>{
+        res.render('product-edit-form',{csspath,compare:"/stylesheet/product-edit-form-style"})
+    }
 }
 
 

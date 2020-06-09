@@ -7,6 +7,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index.js');
 var usersRouter = require('./routes/users.js');
 
+
 var app = express();
 
 // view engine setup
@@ -19,13 +20,16 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/home', (req,res) => res.render('home'))
-app.use('/detalle', (req,res) => res.render('detalle'))
-app.use('/cart', (req,res) => res.render('cart'));
-app.use('/register', (req,res) => res.render('register'));
-app.use('/login', (req,res) => res.render('login'));
-app.use('/product-edit', (req,res) => res.render('product-edit-form'));
+
+app.use('/user',usersRouter);
+app.use('/',indexRouter);
+
+// app.use('/home', (req,res) => res.render('home'))
+// app.use('/detalle', (req,res) => res.render('detalle'))
+// app.use('/cart', (req,res) => res.render('cart'));
+// app.use('/register', (req,res) => res.render('register'));
+// app.use('/login', (req,res) => res.render('prueba'));
+// app.use('/product-edit', (req,res) => res.render('product-edit-form'));
 
 
 // catch 404 and forward to error handler
