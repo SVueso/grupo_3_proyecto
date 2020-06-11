@@ -25,7 +25,10 @@ const productController = {
         res.render('home',{csspath,compare:"/stylesheet/style"})
     },
     detalle:(req,res)=>{
-        res.render('detalle',{csspath,compare:"detalle"})
+        var id=req.params.id;
+        //var producto =(nomrbreDB).find(product=> product.id==id)
+        res.render('detalle',{csspath,compare:"detalle",//producto(arreglar la llave parentesis de abajo al descomentar esto)
+                                                                    })
     },
     productEdit: async(req,res)=>{
         res.render('product-edit-form',{csspath,compare:"/stylesheet/product-edit-form-style"})
