@@ -20,9 +20,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-
-app.use('/user',usersRouter);
 app.use('/',indexRouter);
+app.use('/user',usersRouter);
+
 
 // app.use('/home', (req,res) => res.render('home'))
 // app.use('/detalle', (req,res) => res.render('detalle'))
