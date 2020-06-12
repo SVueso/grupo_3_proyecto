@@ -1,6 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 let productsdbFilePath = path.join(__dirname, '../data/products.json');
+let collectionsFilePath = path.join(__dirname, '../data/categories.json');
+let collections = JSON.parse(fs.readFileSync(collectionsFilePath, 'utf-8'));
 let products = fs.readFileSync(productsdbFilePath, 'utf-8') || "[]";
 let productsdb = JSON.parse(products);
 
@@ -19,10 +21,13 @@ var csspath=["/stylesheet/index",
 var compare
 
 const adminController = {
-    productEdit: async(req,res)=>{
-        res.render('product-edit-form',{csspath,compare:"/stylesheet/product-edit-form-style"})
+    adminIndex: async(req,res)=>{
+        res.render('admin');
     },
-    productInfo: async (req,res) => {
+    productCreate: async(req,res)=>{
+        res.render('product-create-form',{csspath,compare:"/stylesheet/product-edit-form-style",collections})
+    },
+    productStore: async (req,res) => {
         //Hago un array con todos los nombres de las imagenes cargadas
         let productImages = [];
         req.files.forEach(file => {
@@ -42,11 +47,20 @@ const adminController = {
             sku: req.body.sku,
             stock: req.body.stock
         };
-
+        console.log(newProduct);
         // Agrego el producto a la db
         let newDB=[...productsdb,newProduct];
         fs.writeFileSync(productsdbFilePath,JSON.stringify(newDB,null,2));
         res.send(newDB);
+    },
+    productEdit: async (req,res) => {
+        res.render('product-edit-choose',{productsdb});
+    },
+    productEditId: async (req,res) => {
+
+        let productToEdit = productsdb.find(product => product.id==req.query.id);
+        console.log(productToEdit.collection);
+        res.render('product-edit-form',{productToEdit,collections});
     }
 };
 module.exports = adminController

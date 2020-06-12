@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/admin.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <title>Product Edit</title>
+</head>
+<body>
+    <!-- Admin elije producto a modificar -->
+    <div class="choose-container">
+        <h2 class="products-title">Choose product to edit:</h2>
+        <form class="select-container" action="/admin/product-edit-id" method="GET">            
+            <select class="desplegable" name="id">
+            <% productsdb.forEach(product => { %>
+                <option value="<%- product.id %>"><%- product.name %></option>         
+                <% }) %>
+            </select>
+            <button type="submit">EDIT</button>
+        </form>
+    </div>
+</body>

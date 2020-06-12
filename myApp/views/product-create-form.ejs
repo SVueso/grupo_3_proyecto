@@ -19,15 +19,13 @@
         <p>
             <label for="productName"> 
                 <h3>Product Name:</h3></label>
-            <input  type="text" id="productName" name="productName" value ="<%= productToEdit.name %>">
+            <input type="text" id="productName" name="productName" >
         </p>
         <p>
             <label for="productDescription">
                 <h3>Description:</h3>
             </label>
-            <textarea name="productDescription" id="productDescription" rows="10">
-                <%= productToEdit.description%>
-            </textarea>
+            <textarea name="productDescription" id="productDescription"  rows="10"></textarea>
         </p>
         <p>
             <label for="">
@@ -46,47 +44,42 @@
                 </div>              
         </p>
         <h3>Collection:</h3>
-
-        <select name="collection" id=""  multiple size="4">
+        <select name="collection"  multiple size="4">
             <% collections.forEach(col => { %>
-                <option value="<%= col.id%>" <%=productToEdit.collection.includes(col.id.toString()) ? "selected" : " " %> > 
-                    <%= col.name %> </option>             
+                <option value="<%= col.id%>"><%= col.name %> </option>             
             <% }) %>
         </select>
-
+        
         <h3>Product Data:</h3>
         <div class="product-data-container">
             <div class="columns">
-                <div class="price" >Price</div>
-                <div class="discount" >Discount</div>
-                <div class="cost" >Cost</div>
-                <div class="sku" >SKU</div>
+                <div class="price">Price</div>
+                <div class="discount">Discount</div>
+                <div class="cost">Cost</div>
+                <div class="sku">SKU</div>
                 <div class="stock">Stock</div>
             </div> 
             
             <div class="columns">
                 <div class="price">
-                    <input type="text" name="price" value ="<%= productToEdit.price %>">
+                    <input type="text" name="price">
                 </div>
                 <div class="discount">
-                    <input type="text" name="discount" value ="<%= productToEdit.discount %>">
+                    <input type="text" name="discount">
                 </div>
                 <div class="cost">
-                    <input type="text" name="cost" value ="<%= productToEdit.cost %>">
+                    <input type="text" name="cost">
                 </div>
                 <div class="sku">
-                    <input type="text"  name="sku" value ="<%= productToEdit.sku %>">
+                    <input type="text"  name="sku">
                 </div>
                 <div class="stock">
-                    <input type="text" name="stock"  value ="<%= productToEdit.stock %>">
+                    <input type="text" name="stock">
                 </div>
             </div> 
         </div>
         <div class="btn-containers">        
             <button class="btn" type="submit">SAVE</button>
-            <a href="" class="delete">
-                <button class="delete-btn">DELETE</button>
-            </a>
         </div>
         </form> 
 

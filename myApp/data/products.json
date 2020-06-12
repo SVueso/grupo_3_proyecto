@@ -38,5 +38,63 @@
     "cost": "15",
     "sku": "banana010203",
     "stock": "1100"
+  },
+  {
+    "id": 3,
+    "name": "Marshmallow Cat Bed",
+    "description": "Your Kitty is going to looove snuggling on this Super Comfy Marshmallow Bed!\r\n\r\nTreat your loved one with this luxurious, soft & comfy fake fur bed. Our Marshmallow Bed is designed to provide your Kitty with the most recomforting sleep. This fluffy as a marshmallow cat bed will provide a stress free, relaxing zone for your loved one.\r\n\r\nCat approved! The comforting donut shape makes cats feel warm and safe.\r\n\r\nAvailable in 5 sizes and 9 colors, choose the perfect one for your Kitty!\r\n\r\nVery easy to wash and dry!\r\n\r\nOur Costumers say...\r\n\r\n\"Such great quality. super soft and comfortable for my cats. They love this. I like that the sides are deep so they feel secure in it.\" - Andy L.\r\n\r\n\"This Marshmallow cat bed is excellent. My cat adores it. Im very satisfied. Thanks!\"  Jane N.\r\n\r\nOur buyers frequently get the Marshmallow Bed with our awesome Flopping Fish Cat Toy which will instantly catch your Kitty's attention with its flippity floppity moves.\r\n\r\nLIMITED TIME ONLY. Not sold in stores.\r\n\r\nSecure checkout via: Mastercard, Visa & PayPal.\r\n\r\nBeds ship vacuum sealed for cost effective shipping.\r\n\r\nFREE SHIPPING! Note: due to very high demand, please allow 2-4 weeks for delivery.",
+    "collection": [
+      "1",
+      "4"
+    ],
+    "images": [
+      "productImages-1591976827009.jpg",
+      "productImages-1591976827060.jpg",
+      "productImages-1591976827074.jpg",
+      "productImages-1591976827185.jpg"
+    ],
+    "price": "60",
+    "discount": "50",
+    "cost": "22",
+    "sku": "MM010203",
+    "stock": "967"
+  },
+  {
+    "id": 4,
+    "name": "Windmill Cat Toy",
+    "description": "THE NEW FIDGET SPINNER FOR CATS!\r\n\r\nThis Windmill Cat Toy spins just like a fidget spinner keeping cats entertained for hours!\r\n\r\nFEATURES:\r\nFree Shipping (on 2+ units)\r\nLong lasting spinning action\r\n2 transarent bins\r\nSuction cup base\r\nCatnip balls included!\r\nAvailable in 3 colors\r\nSize: 6in wide, 3in tall\r\nQuantity discount\r\nENTERTAINING: With the slightest touch the Windmill Cat Toy strats to spin attracting cats attention and desire to interact with it.\r\n\r\nSUCTION CUP: Its suction cap base allows it to stick to any smooth surface in both horizontal or vertical orientantion keeping it still while kitties play.\r\n\r\nINSTINCT DEVELOPMENT: Two transparent bins located on the blades edges can place lights, bells or treats which stimulate cat's instinct to follow moving objects.\r\n\r\nANXIETY REDUCTION: The focus, and motor skills required to play with the Windmill Cat Toy help reduce axiety, keeping our feline loved ones relaxed and away from the furniture.\r\n\r\nDESIGN & MANUFACTURE: Finely designed and well built with soft TPR material.\r\n\r\nQUANTITY DISCOUNTED PRICES:\r\n\r\n1 X Windmill Cat Toy = $24.99 \r\n2 X Windmill Cat Toy = $43.7 (SAVE $6.25) \r\n\r\nTo access this promos just add 2 or more windmills to your cart. Discount will apply at ckeckout!\r\n\r\n \r\n\r\nEXCELLENT REVIEWS - OUR COSTUMERS SAY...\r\n\r\n\"Love its unique design, my kitty plays with it all day long.\"\r\n★★★★★ - Johnny E.\r\n\r\n\"My kitties are in LOVE with it!!\"\r\n★★★★★ - Sarah F.\r\n\r\n \r\n\r\nFREE STANDARD SHIPPING (buying 2 or more). Note: due to very high demand, please allow 2-4 weeks for delivery.\r\nEXPRESS SHIPPING: 5-15 business days.\r\n\r\nLIMITED TIME ONLY. Not sold in stores.\r\nSecure checkout via: Visa, Mastercard, American Express & PayPal",
+    "collection": [
+      "1",
+      "3"
+    ],
+    "images": [
+      "productImages-1591987201776.jpg",
+      "productImages-1591987201798.jpg",
+      "productImages-1591987201816.jpg",
+      "productImages-1591987201826.jpg"
+    ],
+    "price": "30",
+    "discount": "25",
+    "cost": "11",
+    "sku": "WIND010203",
+    "stock": "342"
+  },
+  {
+    "id": 5,
+    "name": "Kitty Cartoon Tall Mug",
+    "description": "This purrfect Mug is just for YOU!\r\n\r\nStart you day with this pawsome Mug, having a warm sip of your favourite drink while watching this adorable kitty. The Kitty Cartoon Tall Mug will ensure that you'll start your day with the right paw.\r\n\r\nA great gift for a fellow cat fan!\r\n\r\nLid is included, so you can take your drink anywhere you like.\r\n\r\nMade of great Ceramic Porcelain\r\nMicrowave & Dishwasher safe\r\nVolume 600ml\r\nWeight 500g\r\nLid included\r\nLIMITED TIME ONLY. Not sold in stores.\r\n\r\nSecure checkout via: Mastercard, Visa & PayPal.",
+    "collection": [
+      "6",
+      "8"
+    ],
+    "images": [
+      "productImages-1591989444412.jpg",
+      "productImages-1591989444463.jpg"
+    ],
+    "price": "18",
+    "discount": "0",
+    "cost": "6",
+    "sku": "Mug010203",
+    "stock": "1342"
   }
 ]

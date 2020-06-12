@@ -1,0 +1,54 @@
+[
+  {
+    "id": 1,
+    "name": "For Cats"
+  },
+  {
+    "id": 2,
+    "name": "Trees & Shelves"
+  },
+  {
+    "id": 3,
+    "name": "Toys"
+  },
+  {
+    "id": 4,
+    "name": "Beds"
+  },
+  {
+    "id": 5,
+    "name": "Costumes"
+  },
+  {
+    "id": 6,
+    "name": "For Humans"
+  },
+  {
+    "id": 7,
+    "name": "Leggins"
+  },
+  {
+    "id": 8,
+    "name": "Mugs"
+  },
+  {
+    "id": 9,
+    "name": "Socks"
+  },
+  {
+    "id": 10,
+    "name": "Phone Cases"
+  },
+  {
+    "id": 11,
+    "name": "T-Shirts"
+  },
+  {
+    "id": 12,
+    "name": "Jewelry"
+  },
+  {
+    "id": 13,
+    "name": "SALE"
+  }  
+]

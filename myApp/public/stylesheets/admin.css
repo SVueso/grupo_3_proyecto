@@ -1,0 +1,54 @@
+/*====== Fonts ======*/
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap');
+
+
+/*====== Variables ======*/
+:root {
+  --brand: #E66F23;
+  --brand-opacity: rgba(230, 111, 35, 0.2);
+  --cart-bkgd: #343535;
+  --gray: #666666;
+  --light-gray: #bbb9b9;
+  --delete:#4284ff;
+}
+
+.btn-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.choose-container{
+    width: 40%;
+    margin: auto; 
+    text-align: center;
+}
+
+.btn{
+    width: 40%; 
+    text-decoration: none;
+    margin-top: 5%;
+}
+
+button{
+    margin-top: 3%;
+    width: 100%;
+    background-color: var(--brand);
+    padding: 5%;
+    color: white;
+    font-weight: 600;
+    font-size: 1.2em;
+    border: 3px;
+    border-radius: 10px;
+    display: block;
+}
+
+.desplegable{
+    margin-top:3%;
+    width: 100%;
+    padding: 5%;
+    font-weight: 600;
+    font-size: 1em;
+    border: 3px solid var(--gray);
+    border-radius: 10px;
+}

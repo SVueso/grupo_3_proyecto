@@ -36,6 +36,13 @@ input[type=text], textarea{
     text-align: center;
 }
 
+textarea, #productName {
+    text-align: left;
+    padding-left: 1%;
+}
+
+
+
 .btn-containers{
     display: flex;
     justify-content: space-between;
