@@ -30,19 +30,6 @@ const productController = {
         res.render('detalle',{csspath,compare:"detalle",//producto(arreglar la llave parentesis de abajo al descomentar esto)
                                                                     })
     },
-    productEdit: async(req,res)=>{
-        res.render('product-edit-form',{csspath,compare:"/stylesheet/product-edit-form-style"})
-    },
-    productInfo: async (req,res) => {
-        console.log(req.body);
-        console.log(req.files);
-        let productImages = [];
-        req.files.forEach(file => {
-            productImages.push(file.filename)
-        });
-        console.log(productImages);          
-        // res.send(req.body);
-    },
     productos: async (req,res) => {
         res.render('allProducts')
     }

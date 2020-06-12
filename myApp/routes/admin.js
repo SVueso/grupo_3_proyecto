@@ -1,8 +1,10 @@
 var express = require('express');
 var router = express.Router();
+
 const multer = require('multer');
 const path = require('path');
-var productController = require("../controller/ProductController");
+
+var adminController = require("../controller/AdminController");
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -13,13 +15,9 @@ var storage = multer.diskStorage({
     }
   })
    
-  var upload = multer({ storage: storage })
+var upload = multer({ storage: storage });
 
-/* GET home page. */
-router.get("/",productController.index);
-router.get("/home",productController.home);
-router.get("/detalle",productController.detalle);
-router.get("/allProducts", productController.productos);
-
+router.get("/product-edit",adminController.productEdit);
+router.post("/product-info",upload.any(),adminController.productInfo);
 
 module.exports = router;
