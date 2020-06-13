@@ -64,6 +64,10 @@ body{
   text-align: left;
 }
 
+.descripcion-texto{
+  line-height: 25px;
+}
+
 .description-specifications li{
   list-style-type: disc;
   

@@ -113,9 +113,11 @@
                     </div>
                     <div class="product-description">
                         <div>
-                            <article class="descripcion-texto">
-                                <%= productDetail.description %> 
-                            </article>
+                           <% for( let i = 0; i < productDetail.description.length; i++ ) { %>
+                             
+                            <div><%= productDetail.description[i] %> </div>
+                            
+                            <% } %>
                         </div>
                         <!-- ><><><><><><><><><><><><><><><>UN FOR QUE CREE UN DIV CON LA DESCRIPCION DE PRODUCTO.DESCRIPTION<><><><><><><><><><><><><><><><><><><><><><><><><><>< -->
                         <!-- <div>
@@ -234,6 +236,7 @@
                         <hr class="hr-small">
                     </div>
                     <!-- aca comienza recomendados -->
+                    <!-- HACER UN LOOP QUE SEA MAX 4 UNIDADES, Y QUE IMPRIMA LOS PRIMEROS ITEMS DE LA CATEGORIA -->
                     <div class="products-recomended">
                        <!-- ><><><><><><><><><><><><><><><><><><>PRODUCTOS RECOMENDADOS, RANDOMIZARLOS? EN ORDEN? SIEMPRE 4?<><><><><><><><><><><><><><><><><><><><><><><>< -->
                         <div class="product-recomended-vip">   
@@ -249,6 +252,7 @@
                                             <span class="precio-final">
                                                 <span>$15.65</span>
                                             </span>
+                                            
                                             <span class="precio-total">
                                                 <span>$25.56</span>
                                             </span>
