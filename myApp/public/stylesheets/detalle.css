@@ -66,6 +66,11 @@ body{
 
 .descripcion-texto{
   line-height: 25px;
+  padding:8px;
+  font-size: 20px;
+  font-family: Cabin,sans-serif;
+  color: #343535;
+  font-weight: 400;
 }
 
 .description-specifications li{
