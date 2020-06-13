@@ -1,5 +1,10 @@
 const fs = require('fs');
 const path = require('path');
+let productsdbFilePath = path.join(__dirname, '../data/products.json');
+let products = fs.readFileSync(productsdbFilePath, 'utf-8') || "[]";
+let collectionsFilePath = path.join(__dirname, '../data/categories.json');
+let collections = JSON.parse(fs.readFileSync(collectionsFilePath, 'utf-8'));
+let productsdb = JSON.parse(products);
 
 // let dbpath = path.join(__dirname, `../ASIGNARRUTA`);
 // let db = fs.readFileSync(filePath, 'utf-8');
@@ -24,11 +29,13 @@ const productController = {
     home: async (req,res)=>{
         res.render('home',{csspath,compare:"/stylesheet/style"})
     },
-    detalle:(req,res)=>{
+    detalle: async (req,res)=>{
         var id=req.params.id;
+        var productDetail=productsdb.find(product=>product.id==id)
+       
+        
         //var producto =(nomrbreDB).find(product=> product.id==id)
-        res.render('detalle',{csspath,compare:"detalle",//producto(arreglar la llave parentesis de abajo al descomentar esto)
-                                                                    })
+        res.render('detalle',{csspath,compare:"/stylesheet/detalle.css",productDetail})
     },
     productos: async (req,res) => {
         res.render('allProducts')

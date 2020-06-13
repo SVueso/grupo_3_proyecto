@@ -18,7 +18,7 @@ var storage = multer.diskStorage({
 /* GET home page. */
 router.get("/",productController.index);
 router.get("/home",productController.home);
-router.get("/detalle",productController.detalle);
+router.get("/detalle/:id",productController.detalle);
 router.get("/allProducts", productController.productos);
 
 
