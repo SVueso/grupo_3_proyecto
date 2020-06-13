@@ -35,7 +35,11 @@ const productController = {
         res.render('detalle',{csspath,compare:"/stylesheets/detalle.css",productDetail})
     },
     productos: async (req,res) => {
-        res.render('allProducts',{csspath,compare:"/stylesheets/style.css"})
+<<<<<<< HEAD
+        res.render('allProducts',{csspath,compare:"/stylesheets/style.css",productos:productsdb})
+=======
+        res.render('allProducts', {})
+>>>>>>> 514a89087e8303cd03ccbeb04ef0e893120d6782
     }
 };
 module.exports = productController

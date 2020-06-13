@@ -270,3 +270,17 @@ body {
       }
 
     }
+
+/* ALL PRODUCTS */
+
+.allProducts {
+  text-align: center !important;
+}
+
+.imagenAll {
+  width: 100% !important;
+}
+
+.productoAll {
+  width: 100% !important;
+}

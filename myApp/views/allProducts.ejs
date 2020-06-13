@@ -4,25 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 <body>
-    <div class="header__title">
-        <h1>All Products</h1>
+    <%- include('./partials/header.ejs') %>
+    <div class="header__title allProducts">
+        <h2>All Products</h2>
+        <hr class="hr--small">
     <div class="productos">
-        <div class="producto">
-        <% productos.forEach(producto => { %>           
-           <img src="<%= producto.image %>" alt="" class="imagen">
-           <% if (producto.discount > 0) { %>
-            <div class="on-sale"><%= producto.onSale %></div>
-           <% } %>
-           <div><%= producto.title %></div>
-           <div>-</div>
-           <div class="money"><%= producto.money %></div>
-           <div class="comparePrice">
-            <div class="money"><%= producto.finalPrice %></div>
-           </div>
-        <% }) %>
+        <% productos.forEach(producto => { %>  
+            <a class="productoADetalle" href="/detalle/<%= producto.id %>">
+        <div class="producto productoAll">
+        <div>
+           <img src="/images/products/<%= producto.images[1] %>" alt="" class="imagen" style="height: auto;;">
         </div>
+           <% if (producto.discount > 0) { %>
+            <div class="on-sale"><b>Sale</b></div>
+            <div><%= producto.name %></div>
+           <div>-</div>
+           <div class="money"><%= producto.price %></div>
+            <div class="comparePrice">
+                <div class="money"><%= ((producto.price)*(producto.discount/100)) %></div>
+               </div>
+           <% } else { %>
+           <div><%= producto.name %></div>
+           <div>-</div>
+           <div class="money"><%= producto.price %></div>
+           <% } %>
+        </div>
+    </a>
+        <% }) %>
     </div>
 </body>
 </html>
