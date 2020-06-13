@@ -1,12 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/stylesheets/product-edit-form-style.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <title>Product Edit Form</title>
-</head>
+    <%- include('./partials/head.ejs') %>
 <body>
     <div class="container">  
         <h2 class="ProductName">Product Name</h2>
@@ -15,7 +9,7 @@
             Client View
         </a>
            
-        <form action="/admin/product-store" method="POST" enctype="multipart/form-data">
+        <form action="/admin/editProduct?id=<%= productToEdit.id %> " method="POST" enctype="multipart/form-data">
         <p>
             <label for="productName"> 
                 <h3>Product Name:</h3></label>
@@ -84,10 +78,11 @@
         </div>
         <div class="btn-containers">        
             <button class="btn" type="submit">SAVE</button>
-            <a href="" class="delete">
-                <button class="delete-btn">DELETE</button>
-            </a>
+            
         </div>
+        </form>
+        <form action="/admin/delete/<%=id%>" method="POST">
+            <button type="submit" class="btn">Delete</button>
         </form> 
 
     </div>

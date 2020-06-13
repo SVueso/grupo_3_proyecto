@@ -1,16 +1,16 @@
 const fs = require('fs');
 const path = require('path');
-var csspath=["/stylesheet/index",
-                 "/stylesheet/style",
-                 "/stylesheet/detalle",
-                 "/stylesheet/header",
-                 "/stylesheet/footer",
-                 "/stylesheet/product-edit-form-style",
-                 '/stylesheet/register-login-style',
-                 "/stylesheet/cart-style.css",
-
-                 ];
-     var compare
+var csspath=["/stylesheets/index.css",
+"/stylesheets/style.css",
+"/stylesheets/detalle.css",
+"/stylesheets/header.css",
+"/stylesheets/footer.css",
+"/stylesheets/product-edit-form-style.css",
+'/stylesheets/register-login-style.css',
+"/stylesheets/cart-style.css",
+"/stylesheets/admin.css"
+];
+ var compare
 
 
 // let dbpath = path.join(__dirname, `../ASIGNARRUTA`);
@@ -20,11 +20,11 @@ const userController = {
 // CREAR VARIABLE EN EL CONTROLLER PARA PODER PASARLE A LA VISTA Y COMPARAR LAS VISTAS PARA EJECUTAR LA CORRECTA
     login:(req,res)=>{
        
-        res.render('login',{csspath,compare:'/stylesheet/register-login-style'})
+        res.render('login',{csspath,compare:'/stylesheets/register-login-style.css'})
     },
     register:(req,res)=>{
                 
-        res.render('register',{csspath,compare:'/stylesheet/register-login-style'})
+        res.render('register',{csspath,compare:'/stylesheets/register-login-style.css'})
     },
     
 

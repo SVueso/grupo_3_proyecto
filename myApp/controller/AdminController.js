@@ -6,15 +6,16 @@ let collections = JSON.parse(fs.readFileSync(collectionsFilePath, 'utf-8'));
 let products = fs.readFileSync(productsdbFilePath, 'utf-8') || "[]";
 let productsdb = JSON.parse(products);
 
-var csspath=["/stylesheet/index",
-                 "/stylesheet/style",
-                 "/stylesheet/detalle.css",
-                 "/stylesheet/header",
-                 "/stylesheet/footer",
-                 "/stylesheet/product-edit-form-style",
-                 '/stylesheet/register-login-style',
-                 "/stylesheet/cart-style.css",
-                 ];
+var csspath=["/stylesheets/index.css",
+"/stylesheets/style.css",
+"/stylesheets/detalle.css",
+"/stylesheets/header.css",
+"/stylesheets/footer.css",
+"/stylesheets/product-edit-form-style.css",
+'/stylesheets/register-login-style.css',
+"/stylesheets/cart-style.css",
+"/stylesheets/admin.css"
+];
                 //  solucionar el tema del footer para poder tenerlo en la vista siempre, 
                 // o ver si se fusiona a todas las vistas necesarias,
 
@@ -22,10 +23,11 @@ var compare
 
 const adminController = {
     adminIndex: async(req,res)=>{
-        res.render('admin');
+        res.render('admin', {csspath,compare:"/stylesheets/admin.css"});
     },
     productCreate: async(req,res)=>{
-        res.render('product-create-form',{csspath,compare:"/stylesheet/product-edit-form-style",collections})
+        res.render('product-create-form',{csspath,compare:"/stylesheets/product-edit-form-style.css",collections})
+        res.redirect('/home')
     },
     productStore: async (req,res) => {
         //Hago un array con todos los nombres de las imagenes cargadas
@@ -51,16 +53,53 @@ const adminController = {
         // Agrego el producto a la db
         let newDB=[...productsdb,newProduct];
         fs.writeFileSync(productsdbFilePath,JSON.stringify(newDB,null,2));
-        res.send(newDB);
+        // res.send(newDB);
+        res.redirect('/home')
+    },
+    editProduct: async (req,res) => {
+        //Hago un array con todos los nombres de las imagenes cargadas
+        let id=req.query.id
+        let producto=productsdb.find(id==productsdb.id)
+        let productImages = [...producto.images]
+        req.files.forEach(file => {
+            productImages.push(file.filename)
+        });
+// ME TIRA ERROR CANNOT READ PROPERTY OF "IMAGES" OF UNDEFINED
+        productsdb.forEach(product =>{ if(product.id == id) {
+            id = id,
+            name=req.body.productName,
+            description= req.body.productDescription,
+            collection= req.body.collection,
+            images= productImages,
+            price= req.body.price,
+            discount= req.body.discount,
+            cost= req.body.cost,
+            sku= req.body.sku,
+            stock= req.body.stock
+        }});
+            let actProduct=JSON.stringify(productsdb);
+            fs.writeFileSync(productsdbFilePath,actProduct, null," ")
+        //Nuevo producto a agregar a la db
+        let editedProduct=
+        
+        // Agrego el producto a la db
+        // res.send(newDB);
+        res.redirect('/home')
     },
     productEdit: async (req,res) => {
-        res.render('product-edit-choose',{productsdb});
+        res.render('product-edit-choose',{productsdb,csspath,compare:"/stylesheets/admin.css"});
     },
-    productEditId: async (req,res) => {
-
+    productEditId:  (req,res) => {
+        let id = req.query.id
         let productToEdit = productsdb.find(product => product.id==req.query.id);
-        console.log(productToEdit.collection);
-        res.render('product-edit-form',{productToEdit,collections});
+        res.render('product-edit-form',{id,productToEdit,collections,csspath,compare:"/stylesheets/product-edit-form-style.css"});
+    },
+    delete:async(req,res)=>{
+        let deleteid=req.params.id
+        let newDataBase=productsdb.filter(product=>product.id!=deleteid)
+        let newdataBaseJS=JSON.stringify(newDataBase, null, '')
+        fs.writeFileSync(productsdbFilePath,newdataBaseJS);
+        res.redirect('/admin/product-edit')
     }
 };
 module.exports = adminController
