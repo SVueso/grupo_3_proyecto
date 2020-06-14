@@ -279,8 +279,10 @@ body {
 
 .imagenAll {
   width: 100% !important;
+  height: 280px !important;
 }
 
 .productoAll {
   width: 100% !important;
 }
+
