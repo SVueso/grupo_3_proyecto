@@ -59,11 +59,16 @@ const adminController = {
     editProduct: async (req,res) => {
         //Hago un array con todos los nombres de las imagenes cargadas
         let id=req.query.id
-        let producto=productsdb.find(id==productsdb.id)
-        let productImages = [...producto.images]
-        req.files.forEach(file => {
-            productImages.push(file.filename)
-        });
+        let producto=productsdb.find(producto=>producto.id==id)
+        
+        console.log(req.files)
+        for (let i = 0; i < req.files.length; i++) {
+             var objpush = req.files[i].filename
+             var productImages=[...producto.images,...objpush]
+        }
+        // req.files.forEach(file => {
+        //     productImages.push(file.filename)
+        // });
 // ME TIRA ERROR CANNOT READ PROPERTY OF "IMAGES" OF UNDEFINED
         productsdb.forEach(product =>{ if(product.id == id) {
             id = id,
@@ -80,7 +85,7 @@ const adminController = {
             let actProduct=JSON.stringify(productsdb);
             fs.writeFileSync(productsdbFilePath,actProduct, null," ")
         //Nuevo producto a agregar a la db
-        let editedProduct=
+        
         
         // Agrego el producto a la db
         // res.send(newDB);
