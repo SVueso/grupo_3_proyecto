@@ -17,7 +17,7 @@
             <div class="on-sale"><b>Sale</b></div>
             <div><%= producto.name %></div>
            <div>-</div>
-           <div class="money">$<%= ((producto.price)*(producto.discount/100)) %></div>
+           <div class="money">$<%= ((producto.price)-(producto.price)*(producto.discount/100)) %></div>
             <div class="comparePrice">
                 <div class="money">$<%= producto.price %></div>
                </div>
