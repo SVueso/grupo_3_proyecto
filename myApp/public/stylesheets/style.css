@@ -79,7 +79,7 @@ body {
   margin-right: 1%;
   width: 30%;
   margin-bottom: 3%;
-  padding: 3%;
+  /* padding: 3%; */
   position: relative;
 }
 
@@ -95,6 +95,7 @@ body {
 .comparePrice {
   color: red;
   text-decoration: red line-through;
+  font-size: 0.8em;
 }
 
 .text-center {
@@ -136,6 +137,8 @@ body {
   position: relative;		
   width: 100%;
   background-position: center;
+  height: 280px;
+  margin-bottom: 3%;
 }
 
 .foto {
@@ -280,6 +283,7 @@ body {
 .imagenAll {
   width: 100% !important;
   height: 280px !important;
+  margin-bottom: 3%;
 }
 
 .productoAll {
