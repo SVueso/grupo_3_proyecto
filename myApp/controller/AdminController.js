@@ -53,15 +53,14 @@ const adminController = {
         // Agrego el producto a la db
         let newDB=[...productsdb,newProduct];
         fs.writeFileSync(productsdbFilePath,JSON.stringify(newDB,null,2));
-        // res.send(newDB);
-        res.redirect("/allProducts")
+        res.redirect("/admin");
+        // let updatedDB = JSON.parse(fs.readFileSync(productsdbFilePath, 'utf-8'));
+        // res.render("allProducts",{csspath,compare:"/stylesheets/style.css",productos:updatedDB});
     },
     editProduct: async (req,res) => {
         //Hago un array con todos los nombres de las imagenes cargadas
-        let id=req.query.id
+        let id=req.params.id
         let producto=productsdb.find(producto=>producto.id==id)
-        
-        console.log(req.files)
         for (let i = 0; i < req.files.length; i++) {
              var objpush = req.files[i].filename
              var productImages=[...producto.images,...objpush]
@@ -71,25 +70,22 @@ const adminController = {
         // });
 // ME TIRA ERROR CANNOT READ PROPERTY OF "IMAGES" OF UNDEFINED
         productsdb.forEach(product =>{ if(product.id == id) {
-            id = id,
-            name=req.body.productName,
-            description= req.body.productDescription,
-            collection= req.body.collection,
-            images= productImages,
-            price= req.body.price,
-            discount= req.body.discount,
-            cost= req.body.cost,
-            sku= req.body.sku,
-            stock= req.body.stock
+            // id = id,
+            product.name=req.body.productName;
+            product.description= req.body.productDescription;
+            product.collection= req.body.collection;
+            // images= productImages,
+            product.price= req.body.price;
+            product.discount= req.body.discount;
+            product.cost= req.body.cost;
+            product.sku= req.body.sku;
+            product.stock= req.body.stock;
         }});
             let actProduct=JSON.stringify(productsdb);
-            fs.writeFileSync(productsdbFilePath,actProduct, null," ")
-        //Nuevo producto a agregar a la db
+            fs.writeFileSync(productsdbFilePath,actProduct, null,2)
+            let products = JSON.parse(fs.readFileSync(productsdbFilePath, 'utf-8'));
+            res.render('home',{csspath,compare:"/stylesheets/style.css",productos:products})
         
-        
-        // Agrego el producto a la db
-        // res.send(newDB);
-        res.redirect('/home')
     },
     productEdit: async (req,res) => {
         res.render('product-edit-choose',{productsdb,csspath,compare:"/stylesheets/admin.css"});
@@ -102,9 +98,9 @@ const adminController = {
     delete:async(req,res)=>{
         let deleteid=req.params.id
         let newDataBase=productsdb.filter(product=>product.id!=deleteid)
-        let newdataBaseJS=JSON.stringify(newDataBase, null, '')
+        let newdataBaseJS=JSON.stringify(newDataBase, null, 2)
         fs.writeFileSync(productsdbFilePath,newdataBaseJS);
-        res.redirect('/admin/product-edit')
+        res.redirect('/admin')
     }
 };
 module.exports = adminController

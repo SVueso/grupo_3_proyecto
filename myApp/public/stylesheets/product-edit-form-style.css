@@ -65,9 +65,10 @@ textarea, #productName {
     margin-top: 3%;
     width: 25%;
     display: block;
+    background-color: var(--delete);
 }
 
-
+/* 
 .delete-btn{
     background-color: var(--delete);
     width:100%;
@@ -83,7 +84,7 @@ a{
     text-decoration: none;
     color: var(--brand);
     font-size: 1.2em;
-}
+} */
 
 .media-box{
     width:100%;
