@@ -26,7 +26,7 @@ const productController = {
         res.render('index',{csspath,compare:"/stylesheets/index.css",title: 'Sprint 2 del Grupo 3', saludo:'Buenas!'})
     },
     home: async (req,res)=>{
-        res.render('home',{csspath,compare:"/stylesheets/style.css"})
+        res.render('home',{csspath,compare:"/stylesheets/style.css",productos:productsdb})
     },
     detalle:  (req,res)=>{
         var id=req.params.id;
