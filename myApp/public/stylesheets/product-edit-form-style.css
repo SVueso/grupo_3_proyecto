@@ -112,7 +112,7 @@ a{
     flex-wrap: wrap;
 }
 
-img{
+.second-img img{
     width:23%;
     margin: 1%;
 }
