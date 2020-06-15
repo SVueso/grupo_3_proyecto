@@ -54,7 +54,7 @@ const adminController = {
         let newDB=[...productsdb,newProduct];
         fs.writeFileSync(productsdbFilePath,JSON.stringify(newDB,null,2));
         // res.send(newDB);
-        res.redirect('/home')
+        res.redirect("/allProducts")
     },
     editProduct: async (req,res) => {
         //Hago un array con todos los nombres de las imagenes cargadas
