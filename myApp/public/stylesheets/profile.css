@@ -1,0 +1,22 @@
+*{
+    box-sizing: border-box;
+}
+
+article{
+   margin: 20px 0;
+   font-size: large;
+   display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+
+@media (min-width:500px){
+article{
+    display: flex;
+    align-items: flex-start;
+    padding-left: 25%;
+}
+}

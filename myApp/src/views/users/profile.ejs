@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <%- include('../partials/head.ejs'); -%>
+    <%- include('../partials/header.ejs'); -%>
+<body>
+    <section class="profile-box">
+        <article class="image">
+            <img src="" alt="">
+        </article>
+        <article class="name">
+         <strong>Firs Name:</strong><%= user.First_Name %> 
+        </article>
+        <article class="name">
+         <strong>Last Name:</strong><%= user.Last_Name %> 
+        </article>
+        <article class="email">
+         <strong>Email:</strong>   <%= user.Email %> 
+        </article>
+        <article class="telephone">
+           <strong>Telephone:</strong> <%= user.Telephone %> 
+        </article>
+        <article class="Address">
+        <strong>Addres:</strong> <%= user.Address %> 
+        </article>
+        <article class="Address">
+        <strong>Number:</strong><%= user.Number %> 
+        </article>
+        <article class="zipcode">
+        <strong>Zipcode:</strong><%= user.Zipcode %>    
+        </article>
+        <article class="country">
+        <strong>State:</strong><%= user.State %>, <%= user.Country %>  
+        </article>
+    </section>
+    <%- include('../partials/footer.ejs'); -%>
+</body>
+</html>
