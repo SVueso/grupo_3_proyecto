@@ -4,33 +4,36 @@
     <%- include('../partials/head.ejs'); -%>
     <%- include('../partials/header.ejs'); -%>
 <body>
-    <section class="profile-box">
-        <article class="image">
-            <img src="" alt="">
-        </article>
-        <article class="name">
+    <section class="data-box">
+        <div class="image-box">
+            <img class="image"src="/images/ovni.jpeg" alt="">
+        </div>
+        <article class="text-box">
+        <article class="data">
          <strong>Firs Name:</strong><%= user.First_Name %> 
         </article>
-        <article class="name">
+        <article class="data">
          <strong>Last Name:</strong><%= user.Last_Name %> 
         </article>
-        <article class="email">
+        <article class="data">
          <strong>Email:</strong>   <%= user.Email %> 
         </article>
-        <article class="telephone">
+        <article class="data">
            <strong>Telephone:</strong> <%= user.Telephone %> 
         </article>
-        <article class="Address">
+        <article class="data">
         <strong>Addres:</strong> <%= user.Address %> 
         </article>
-        <article class="Address">
+        <article class="data">
         <strong>Number:</strong><%= user.Number %> 
         </article>
-        <article class="zipcode">
+        <article class="data">
         <strong>Zipcode:</strong><%= user.Zipcode %>    
         </article>
-        <article class="country">
+        <article class="data">
         <strong>State:</strong><%= user.State %>, <%= user.Country %>  
+        </article>
+        </div>
         </article>
     </section>
     <%- include('../partials/footer.ejs'); -%>
