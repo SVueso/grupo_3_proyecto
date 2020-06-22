@@ -1,5 +1,8 @@
 const fs = require('fs');
 const path = require('path');
+const { dirname } = require('path');
+var userPath=path.join(dirname__,"../data/users.json")
+var userdb=JSON.parse(fs.readFileSync(userPath,"utf-8"))
 var csspath=["/stylesheets/index.css",
 "/stylesheets/style.css",
 "/stylesheets/detalle.css",
@@ -10,11 +13,10 @@ var csspath=["/stylesheets/index.css",
 "/stylesheets/cart-style.css",
 "/stylesheets/admin.css"
 ];
- var compare
+var compare
 
 
-// let dbpath = path.join(__dirname, `../ASIGNARRUTA`);
-// let db = fs.readFileSync(filePath, 'utf-8');
+
 
 const userController = {
 // CREAR VARIABLE EN EL CONTROLLER PARA PODER PASARLE A LA VISTA Y COMPARAR LAS VISTAS PARA EJECUTAR LA CORRECTA

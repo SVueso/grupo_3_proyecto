@@ -22,7 +22,7 @@ router.get("/product-create",adminController.productCreate);
 router.post("/product-store",upload.any(),adminController.productStore);
 router.get("/product-edit",adminController.productEdit);
 router.get("/product-edit-id",adminController.productEditId);
-router.post("/editProduct/:id",upload.any(),adminController.editProduct)
+router.put("/editProduct/:id",upload.any(),adminController.editProduct)
 router.post("/delete/:id",adminController.delete)
 
 module.exports = router;
