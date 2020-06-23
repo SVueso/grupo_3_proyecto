@@ -29,11 +29,18 @@ const userController = {
                 
         res.render('register',{csspath,compare:'/stylesheets/register-login-style.css'})
     },
+    registerSave:(req,res)=>{
+        var body=req.body
+        console.log(body)
+        res.send("hello")
+    },
     profile:(req,res)=>{
         var id=req.params.id
         var userData=userdb.find(user=>user.id==id)
     res.render('users/profile',{csspath,compare:"/stylesheets/profile.css",user:userData,title:"Welcome "+userData.First_Name})
     },
+
+
 
 }
 
