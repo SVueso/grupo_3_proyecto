@@ -6,7 +6,7 @@
 
     <h1>Login</h1>
     <div class="container">       
-        <form action="">
+        <form action="/user/login" method="POST">
         <p>
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" placeholder=" e.g. john-simpson@gmail.com">
@@ -25,7 +25,13 @@
         <div class="register">
             Click here to <a href="">Register</a>
         </div>       
+        <% if (typeof errores != 'undefined') { %>
 
+            <% errores.forEach(error => { %>
+                <p><%= error.msg %></p>
+            <% }) %>
+
+        <% } %>
     </div>
 </body>
 </html>

@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+const {check} = require('express-validator');
 
 // const multer = require('multer');
 // const path = require('path');
@@ -22,8 +23,16 @@ router.get("/login",userController.login);
 router.get("/register",userController.register);
 router.get("/profile/:id",userController.profile)
 
-router.post("/registerdata",userController.registerSave)
 
+router.post("/registerdata",userController.registerSave)
+router.post("/login",[
+    check('email')
+    .isEmail()
+    .withMessage("Please include a valid email address")
+    .trim()
+    .not().isEmpty().withMessage("The field cannot be empty"),
+    check('password', "The password must be at least 8 characters")
+    .isLength({min: 8})
+], userController.processLogin);
 
 module.exports = router;
-

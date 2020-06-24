@@ -15,6 +15,7 @@ var csspath=["/stylesheets/index.css",
 "/stylesheets/admin.css"
 ];
 var compare
+const {validationResult} = require('express-validator')
 
 
 
@@ -24,6 +25,23 @@ const userController = {
     login:(req,res)=>{
        
         res.render('login',{csspath,compare:'/stylesheets/register-login-style.css'})
+    },
+    processLogin: (req,res) => {
+        let validation = validationResult(req)
+        let errores = validation.errors
+        if (errores != '') {
+            res.render('login', {errores})
+        }
+
+        let emailUsuario = getUserByEmail(req.body.email);
+
+        if (emailUsuario != undefined) {
+            if (bcrypt.compareSync(req.body.password, emailUsuario.password)){
+                res.redirect(`users/profile/${emailUsuario.id}`)
+            } else {
+                res.send("The username or password is incorrect")
+            }
+        }
     },
     register:(req,res)=>{
                 
@@ -43,11 +61,6 @@ const userController = {
 
 
 }
-
-
-
-
-
 
 
 module.exports = userController 
