@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const {check} = require('express-validator');
+const authMiddleware = require('../middlewares/authMiddleware')
 
 // const multer = require('multer');
 // const path = require('path');
@@ -21,7 +22,7 @@ var userController = require("../controller/userController");
 /* GET users listing. */
 router.get("/login",userController.login);
 router.get("/register",userController.register);
-router.get("/profile/:id",userController.profile)
+router.get("/profile/:id",authMiddleware, userController.profile);
 
 
 router.post("/registerdata",userController.registerSave)

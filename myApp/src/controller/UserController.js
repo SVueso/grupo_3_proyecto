@@ -16,8 +16,20 @@ var csspath=["/stylesheets/index.css",
 ];
 var compare
 const {validationResult} = require('express-validator')
+const usersFilePath = './src/data/users.json';
 
 
+function getAllUsers() {
+    let usersFileContent = fs.readFileSync(usersFilePath, 'utf-8');
+    let users = usersFileContent != '' ? JSON.parse(usersFileContent) : [];
+    return users;
+}
+
+function getUserByEmail(userEmail) {
+    let allUsers= getAllUsers();
+    let theUser = allUsers.find(oneUser => oneUser.email == userEmail);
+    return theUser;
+}
 
 
 const userController = {
@@ -33,14 +45,19 @@ const userController = {
             res.render('login', {errores})
         }
 
-        let emailUsuario = getUserByEmail(req.body.email);
+        let usuario = getUserByEmail(req.body.email);
 
-        if (emailUsuario != undefined) {
-            if (bcrypt.compareSync(req.body.password, emailUsuario.password)){
-                res.redirect(`users/profile/${emailUsuario.id}`)
+        if (usuario != undefined) {
+            if (bcrypt.compareSync(req.body.password, usuario.password)){
+
+                req.session.userId = usuario.id;
+
+                res.redirect(`users/profile/`+usuario.id)
             } else {
                 res.send("The username or password is incorrect")
             }
+        } else {
+            res.send("The username does not exist")
         }
     },
     register:(req,res)=>{
