@@ -2,14 +2,8 @@
 <html lang="en">
     <%- include('./partials/head.ejs') %>
 <body>
-<%- include('./partials/header.ejs') %>
-<% if (typeof errores != 'undefined') { %>
+    <%- include('./partials/header.ejs') %>
 
-    <% errores.forEach(error => { %>
-        <p><%= error.msg %></p>
-    <% }) %>
-
-<% } %>
     <h1>Login</h1>
     <div class="container">       
         <form action="/user/login" method="POST">
@@ -32,5 +26,11 @@
             Click here to <a href="">Register</a>
         </div>       
     </div>
+    <% if (typeof errores != 'undefined') { %>
+        <% errores.forEach(error => { %>
+            <p><%= error.msg %></p>
+        <% }) %>
+
+    <% } %>
 </body>
 </html>
