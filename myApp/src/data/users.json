@@ -1,33 +1,70 @@
-[{
+[
+  {
     "id": 1,
-    "first_name": "pedro",
-    "last_name": "jose",
-    "email": "pedro123456@otracuenta.com",
-    "telephone": "1231412313§",
-    "address": "hillway",
-    "number": "2731 8 floor",
-    "password": [
-      "asd123",
-      "asd123"
-    ],
+    "first_name": "Fran",
+    "last_name": "Mainardis",
+    "email": "franwow2@hotmail.com",
+    "telephone": "1176584756",
+    "address": "chubut",
+    "number": "324",
+    "state": "Escobar",
+    "country": "Argentina",
+    "zipcode": "2213",
+    "password": "$2b$10$AKjble6M8ozQLFolhLeSh./qo6TUrtMHoCsdMbg8/EabthJzcyzqu",
+    "password2": "$2b$10$525vWfKxRfg5.MNIYgpAyuu4qZNrxLy1IOqyn1mn/G6aQV1G9tdm2",
     "image": [
-      "userAvatar-1593052458305.jpg"
+      "userAvatar-1593056748578.png"
     ]
   },
   {
     "id": 2,
-    "first_name": "juan",
-    "last_name": "jose",
-    "email": "pedro123456@otracuenta.com",
-    "telephone": "1231412313§",
-    "address": "hillway",
-    "number": "2731 8 floor",
-    "password": [
-      "asd123",
-      "asd123"
-    ],
+    "first_name": "Fran",
+    "last_name": "Mainardis",
+    "email": "franwow1@hotmail.com",
+    "telephone": "1176584756",
+    "address": "chubut",
+    "number": "324",
+    "state": "Escobar",
+    "country": "Argentina",
+    "zipcode": "2213",
+    "password": "$2b$10$IRJ6AsVm/f5GHn7OOO/VQu2Ox153tBiPvDmxCYZ3vqZNMlG.WgXk2",
+    "password2": "$2b$10$50xkspZlQYJxcAw5QN60huNNDl4Qt9pNR87T43LrYqY/K93G5Hgfi",
     "image": [
-      "userAvatar-1593052458305.jpg"
+      "userAvatar-1593056801097.png"
+    ]
+  },
+  {
+    "id": 3,
+    "first_name": "Fran",
+    "last_name": "Mainardis",
+    "email": "franwow@hotmail.com",
+    "telephone": "1176584756",
+    "address": "chubut",
+    "number": "324",
+    "state": "Escobar",
+    "country": "Argentina",
+    "zipcode": "2213",
+    "password": "$2b$10$YIhRl8NnYS/m7X/OhE5l.OaRfYcHCk3kTQS5Hmpq3koHGC6eBMqxe",
+    "password2": "$2b$10$94pKFV3eN/l44f.lKLUhQeEnqlvULIphPIBa/Eqw0ZCwN5hMmADGC",
+    "image": [
+      "userAvatar-1593056842264.png"
+    ]
+  },
+  {
+    "id": 4,
+    "first_name": "pepe",
+    "last_name": "juan",
+    "email": "pepejorge@gmail.com",
+    "telephone": "124123412",
+    "address": "guido",
+    "number": "1640",
+    "state": "recoleta",
+    "country": "Argentina",
+    "zipcode": "2131",
+    "password": "$2b$10$upCCwWU8/MkTMLTtp/IOP.q7zU2x6Pjq89tm35s1wmXg4fWQqSZ5i",
+    "password2": "$2b$10$3zr0YOARJBIG6Ms1V.KCQuX/8y0oxvi.tfhhG2k9Do8hp0eUkRB.K",
+    "image": [
+      "userAvatar-1593057020766.png"
     ]
   }
 ]

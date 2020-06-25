@@ -22,9 +22,7 @@ var storage = multer.diskStorage({
 /* GET users listing. */
 router.get("/login",userController.login);
 router.get("/register",userController.register);
-router.get("/profile/:id",
-// authMiddleware, 
-userController.profile);
+router.get("/profile/:id",authMiddleware,userController.profile);
 
 
 router.post("/registerdata",upload.any(),userController.registerSave)
