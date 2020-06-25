@@ -90,7 +90,16 @@ const userController = {
         res.render('register',{csspath,compare:'/stylesheets/register-login-style.css'})
     },
     registerSave: async (req,res)=>{
-
+        
+        
+        let validation= validationResult(req)
+        let errors = validation.errors
+        console.log(errors);
+        
+        if(errors!= ''){
+            res.render('register',{errors,csspath,compare:'/stylesheets/register-login-style.css'})
+        }
+        
             let userAvatar = [];
             if(req.files!=undefined){
                 req.files.forEach(file => {

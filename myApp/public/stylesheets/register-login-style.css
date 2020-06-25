@@ -74,6 +74,13 @@ a{
     padding: 1% 2%;
 }
 
+.errores-register{
+    margin-top: 10px;
+    text-decoration: solid;
+    font-size: medium;
+    padding: 1% 2%;
+}
+
 /* Tablet media query */
 @media(max-width: 1050px ){
 

@@ -28,7 +28,37 @@ router.get("/logout",userController.logout);
 
 
 
-router.post("/registerdata",upload.any(),userController.registerSave)
+router.post("/registerdata",[
+  check('firstname')
+  .not().isEmpty().withMessage('First Name can not be empty')
+  .trim(),
+  check('lastname')
+  .not().isEmpty().withMessage('Last Name can not be empty')
+  .trim(),
+  check('email')
+  .isEmail().withMessage("Please include a valid email address")
+  .trim()
+  .not().isEmpty().withMessage("The field cannot be empty"),
+  check('password', "The password must be at least 6 characters")
+  .isLength({min: 6}),
+  check('password2')
+  .not().isEmpty().withMessage('Enter a valid confirmation password')
+  .isLength({min: 6}),
+  check('telephone')
+  .not().isEmpty().withMessage('Telephone can not be empty')
+  .trim(),
+  check('address')
+  .not().isEmpty().withMessage('Address can not be empty'),
+  check('addressnumber')
+  .not().isEmpty().withMessage('Number can not be empty'),
+  check('zipcode')
+  .not().isEmpty().withMessage('Enter a valid ZipCode'),
+  check('state')
+  .not().isEmpty().withMessage('Enter a valid State'),
+  check('country')
+  .not().isEmpty().withMessage('Enter a valid Country'),
+ 
+],upload.any(),userController.registerSave)
 router.post("/processLogin",[
     check('email')
     .isEmail()

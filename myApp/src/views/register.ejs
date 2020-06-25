@@ -6,7 +6,13 @@
 
     <!-- Aca va el header -->
     <h1>Registration Form</h1>
-    <div class="container">       
+    <div class="container">   
+        <% if (typeof errors != 'undefined') { %>
+                <% errors.forEach(error => { %>
+                 <small class="errores-register"><%= error.msg %> </small><br>
+                 <% }) %>
+                 <% } %>  
+               
         <form action="/user/registerdata" method="POST" enctype="multipart/form-data">
          
         <p>
@@ -76,6 +82,7 @@
             <label for="rememberMe" class="rememberMe" >Remember Me</label>
         </p>
         <button type="submit">REGISTER</button>
+         
         </form>
 
         <div class="login">
