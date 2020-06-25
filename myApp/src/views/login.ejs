@@ -5,7 +5,12 @@
     <%- include('./partials/header.ejs') %>
 
     <h1>Login</h1>
-    <div class="container">       
+    <div class="container">    
+    <% if (typeof errores != 'undefined') { %>
+        <% errores.forEach(error => { %>
+            <p class="errores"><%= error.msg %></p>
+        <% }) %>
+    <% } %>  
         <form action="/user/processLogin" method="POST">
         <p>
             <label for="email">Email:</label>
@@ -24,13 +29,10 @@
 
         <div class="register">
             Click here to <a href="">Register</a>
-        </div>       
-    </div>
-    <% if (typeof errores != 'undefined') { %>
-        <% errores.forEach(error => { %>
-            <p><%= error.msg %></p>
-        <% }) %>
+        </div>  
 
-    <% } %>
+ 
+
+    </div>
 </body>
 </html>
