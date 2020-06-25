@@ -6,11 +6,11 @@
 <body>
     <section class="data-box">
         <div class="image-box">
-            <img class="image"src="/images/products/<%= user.image %> " alt="">
+            <img class="image"src="/images/users/<%= user.image %>" alt="">
         </div>
         <article class="text-box">
         <article class="data">
-         <strong>Firs Name:</strong><%= user.first_name %> 
+         <strong>First Name:</strong><%= user.first_name %> 
         </article>
         <article class="data">
          <strong>Last Name:</strong><%= user.last_name %> 
@@ -33,6 +33,9 @@
         <article class="data">
         <strong>State:</strong><%= user.state %>, <%= user.country %>  
         </article>
+        <form class="logoutbtnForm" action="/user/logout">
+            <button class="logoutbtn" type="submit">Logout</button>
+        </form>
         </div>
         </article>
     </section>

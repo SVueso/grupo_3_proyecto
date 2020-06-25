@@ -23,6 +23,9 @@ var storage = multer.diskStorage({
 router.get("/login",userController.login);
 router.get("/register",userController.register);
 router.get("/profile/:id",authMiddleware,userController.profile);
+router.get("/check",userController.check);
+router.get("/logout",userController.logout);
+
 
 
 router.post("/registerdata",upload.any(),userController.registerSave)
@@ -32,8 +35,8 @@ router.post("/processLogin",[
     .withMessage("Please include a valid email address")
     .trim()
     .not().isEmpty().withMessage("The field cannot be empty"),
-    check('password', "The password must be at least 8 characters")
-    .isLength({min: 8})
+    check('password', "The password must be at least 2 characters")
+    .isLength({min: 2})
 ], userController.processLogin);
 
 module.exports = router;

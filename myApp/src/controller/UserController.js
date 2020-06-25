@@ -5,6 +5,9 @@ const bcrypt = require('bcryptjs')
 
 var userPath=path.join(__dirname,"../data/users.json")
 var userdb=JSON.parse(fs.readFileSync(userPath,"utf-8"))
+let productsdbFilePath = path.join(__dirname, '../data/products.json');
+let products = fs.readFileSync(productsdbFilePath, 'utf-8') || "[]";
+let productsdb = JSON.parse(products);
 
 var csspath=["/stylesheets/index.css",
 "/stylesheets/style.css",
@@ -22,9 +25,6 @@ var compare
 const {validationResult} = require('express-validator')
 const usersFilePath = './src/data/users.json';
 
-
-
-
 function getAllUsers() {
     let usersFileContent = fs.readFileSync(usersFilePath, 'utf-8');
     let users = usersFileContent != '' ? JSON.parse(usersFileContent) : [];
@@ -37,6 +37,16 @@ function getUserByEmail(userEmail) {
     return theUser;
 }
 
+function getUserinSession(id){
+    if(id){
+        let users = getAllUsers();
+        let theUser = users.find(user=> user.id==id);
+        return theUser.first_name;
+    }
+    else{
+        return undefined;
+    }
+}
 
 const userController = {
 // CREAR VARIABLE EN EL CONTROLLER PARA PODER PASARLE A LA VISTA Y COMPARAR LAS VISTAS PARA EJECUTAR LA CORRECTA
@@ -46,19 +56,28 @@ const userController = {
     },
     processLogin: (req,res) => {
         let validation = validationResult(req)
-        let errores = validation.errors
-        if (errores != '') {
-            res.render('login', {errores})
+        // let errores = validation.errors
+        console.log('los errores son: ');
+        console.log(validation);
+        // if (errores != '') 
+        if(!validation.isEmpty())
+        {   
+            return res.render('login', {csspath,compare:'/stylesheets/register-login-style.css', errores: validation.errors});
         }
+    
         let usuario = getUserByEmail(req.body.email);
 
         if (usuario != undefined) {
             if (bcrypt.compareSync(req.body.password, usuario.password)){
 
                 req.session.userId = usuario.id;
+                console.log("en session esta: "+ req.session.userId)
 
-                res.redirect('profile/'+usuario.id)
-                // {csspath,compare:"/stylesheets/profile.css",user:userData,title:"Welcome "+userData.name}
+                if(req.body.rememberMe){
+                    res.cookie('userCookie',usuario.id,{maxAge:9999999999})
+                }
+                let userName = getUserinSession(req.session.userId); 
+                res.render('home',{csspath,compare:"/stylesheets/style.css",productos:productsdb,userName})
             } else {
                 res.send("The username or password is incorrect")
             }
@@ -71,11 +90,6 @@ const userController = {
         res.render('register',{csspath,compare:'/stylesheets/register-login-style.css'})
     },
     registerSave: async (req,res)=>{
-        
-            // console.log(req.body.password);
-            // console.log(req.body.password2);
-            
-            // chequeo que no sea undefined
 
             let userAvatar = [];
             if(req.files!=undefined){
@@ -102,27 +116,43 @@ const userController = {
                 image: userAvatar
                 }
                 
-                let newDB=[...userdb,newUser]
-                console.log(newDB);
-               fs.writeFileSync(userPath,JSON.stringify(newDB,null,2))
+            let newDB=[...userdb,newUser]
+            // console.log(newDB);
+            fs.writeFileSync(userPath,JSON.stringify(newDB,null,2))
                 
-               req.session.userId = newUser.id;
+            req.session.userId = newUser.id;
+
+            if(req.body.rememberMe){
+                res.cookie('userCookie',newUser.id,{maxAge:9999999999})
+            }
             
-              res.redirect('/user/profile/'+newUser.id)
+            res.redirect('/user/profile/'+newUser.id)
     
 },
     profile:(req,res)=>{
-        var id=req.params.id
-        console.log(id);
+        var id=req.session.userId;
         var newUserdb=JSON.parse(fs.readFileSync(userPath,"utf-8"))
         var userData=newUserdb.find(user=>user.id==id)
-        console.log(userData);
-    res.render('users/profile',{csspath,compare:"/stylesheets/profile.css",user:userData,title:"Welcome "+userData.first_name})
-    },
-
-
-
+        let userName = getUserinSession(req.session.userId); 
+        res.render('users/profile',{csspath,compare:"/stylesheets/profile.css",user:userData,title:"Welcome "+userData.first_name,userName})
+        },
+    logout:(req,res)=>{
+        req.session.destroy();
+        res.cookie('userCookie',null,{maxAge:1});
+        res.redirect('/home');
+        },
+    check:(req,res)=>{
+            console.log("La cookie vale: " + req.cookies.userCookie)
+            if(req.session.userId == undefined) {
+                
+              res.send("No hay usuario en sesion")
+              
+            }
+            else{
+              res.send("El usuario en sesion es el: " + req.session.userId)
+            }
+            
+          }
 }
-
 
 module.exports = userController 

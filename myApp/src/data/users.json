@@ -151,5 +151,90 @@
     "image": [
       "userAvatar-1593061921076.jpg"
     ]
+  },
+  {
+    "id": 10,
+    "first_name": "Sebastian",
+    "last_name": "Vueso",
+    "email": "sv@sv.com",
+    "telephone": "1234566",
+    "address": "Calle falsa ",
+    "number": "123",
+    "state": "Massachuchets",
+    "country": "USA",
+    "zipcode": "2023",
+    "password": "$2a$10$9YeEIAFnLvlWNYAU1s4nBO.SZ1YmuNlHdJW6STffqdbX6L0BSHiLK",
+    "password2": "$2a$10$xZVgaMX4cDtcNvmE8iDdruitq3U7j0O6NdwFeRDm5syCjvVNeKW9C",
+    "image": [
+      "userAvatar-1593088227278.jpg"
+    ]
+  },
+  {
+    "id": 11,
+    "first_name": "sebi",
+    "last_name": "vueso",
+    "email": "sebi@sebi.com",
+    "telephone": "123243231",
+    "address": "calle loca",
+    "number": "123",
+    "state": "California",
+    "country": "USA",
+    "zipcode": "2323",
+    "password": "$2a$10$sg7zw2rA1v8sX.vCnjpwK.lxNL8FULxUVTgDNVwSq/UXiHaPdZ3ny",
+    "password2": "$2a$10$L2s6q3EWOGlUMpFQOpveSOox89Oqf891tKPdxfdB.OXqEOBdKETYG",
+    "image": [
+      "userAvatar-1593089830122.jpg"
+    ]
+  },
+  {
+    "id": 12,
+    "first_name": "juan",
+    "last_name": "juan",
+    "email": "juan@juan.com",
+    "telephone": "1234565432",
+    "address": "Calle rosa",
+    "number": "12",
+    "state": "California",
+    "country": "USA",
+    "zipcode": "2312",
+    "password": "$2a$10$2HLNkZLVm0DFMczBJSsfXet01JeYD9IvHkNeqLuAAsQD0OcOh/ZDa",
+    "password2": "$2a$10$XBBpc3U6s8W3GC8J2nYMQevxMeaxqcfKQWWYpW4vbrpPFWG.nMR2u",
+    "image": [
+      "userAvatar-1593093637733.jpg"
+    ]
+  },
+  {
+    "id": 13,
+    "first_name": "marta",
+    "last_name": "marta",
+    "email": "marta@marta",
+    "telephone": "123421",
+    "address": "calle verde",
+    "number": "1232",
+    "state": "California",
+    "country": "usa",
+    "zipcode": "1232",
+    "password": "$2a$10$fOGBf83RUVWlSsQva5MsSOFpfVNB6FSjyGU3TJosvQLSJaP4SgOpO",
+    "password2": "$2a$10$yQJT4kiBGwvrqhZ9V38BGu5urk3xcbryZVn8kmhfg7cl8Hubit2VS",
+    "image": [
+      "userAvatar-1593095080297.jpg"
+    ]
+  },
+  {
+    "id": 14,
+    "first_name": "piter",
+    "last_name": "piter",
+    "email": "piter@piter.com",
+    "telephone": "234423",
+    "address": "calle naranja",
+    "number": "123432",
+    "state": "California",
+    "country": "USA",
+    "zipcode": "32423",
+    "password": "$2a$10$Qsfhh3Ws3jwD1YWlBlsnrujejZ0S8wLnyqf.aJn23jBi5cW3OWdA2",
+    "password2": "$2a$10$s/ttZZBh2UO/3yBHCvN5BOgS0DOsi8Zf1rE.l0Z4eALet0tnCUX8y",
+    "image": [
+      "userAvatar-1593097567384.jpg"
+    ]
   }
 ]

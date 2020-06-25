@@ -10,6 +10,7 @@ var productoRouter = require('./routes/producto.js');
 var usersRouter = require('./routes/users.js');
 var adminRouter = require('./routes/admin.js');
 
+const cookieAuth = require('./middlewares/cookieAuthMiddleware');
 
 var app = express();
 
@@ -25,6 +26,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../public')));
 
 app.use(session({secret:'session'}));
+app.use(cookieAuth);
 
 app.use('/',productoRouter);
 app.use('/user',usersRouter);

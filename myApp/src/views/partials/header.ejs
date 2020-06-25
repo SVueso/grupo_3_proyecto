@@ -126,6 +126,20 @@
             </a>
           </div>
           <div class="busqueda-compra">
+            <% if (typeof userName != 'undefined') { %>
+                <div class="sessionName">
+                  <a href="/user/profile/2">
+                    Hi <%= userName %>!
+                  </a>
+                </div>             
+            <% } %>   
+            <% if (typeof userName == 'undefined') { %>
+              <div class="sessionName">
+                <a href="/user/login">
+                  Login
+                </a>
+              </div>             
+            <% } %>             
                 <li>
                     <a href="/search" >
                           <i class="fas fa-search" style="height: 100%;"></i>

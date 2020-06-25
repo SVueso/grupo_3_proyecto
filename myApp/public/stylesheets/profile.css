@@ -2,6 +2,14 @@
     box-sizing: border-box;
 }
 
+/*====== Variables ======*/
+:root {
+    --brand: #E66F23;
+    --cart-bkgd: #343535;
+    --gray: #666666;
+    --light-gray: #bbb9b9;
+  }
+
 .data{
    margin: 20px 0;
    font-size: large;
@@ -35,7 +43,16 @@
 width: 100%;
 }
 
-
+.logoutbtn{
+    background-color: var(--brand);
+    color:white;
+    font-size: 1.5em;
+    font-weight: 500;
+    padding: 2% 2%;
+    margin-top: 4%;
+    border: 1px solid  var(--brand);
+    border-radius: 5px;
+}
 
 
 @media (max-width:500px){
