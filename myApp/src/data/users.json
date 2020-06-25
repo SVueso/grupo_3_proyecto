@@ -1,16 +1,36 @@
-[{
-    "id":1,
-    "First_Name":"Bertie",
-    "Last_Name":"Perrington",
-    "Email":"bperrington0@illinois.edu",
-    "Password":"LT62h5",
-    "Categoría":"User",
-    "Image":"user_1.jpg",
-    "Telephone":"303-151-7843",
-    "Street":"Service",
-    "Number":"63290",
-    "Address":"2630 Bunker Hill Circle",
-    "State":"Colorado",
-    "Zipcode":"80279",
-    "Country":"United States"}
+[
+  {
+    "id": 1,
+    "name": "pepe123",
+    "email": "pepe@gmail.com",
+    "password": "123123",
+    "password2": "123123123",
+    "images": "123.jpg"
+  },
+  {
+    "id": 2,
+    "name": "pepe123",
+    "email": "pepe@gmail.com",
+    "password": "123123",
+    "password2": "123123123",
+    "images": "123.jpg"
+  },
+  {
+    "id": 3,
+    "name": "pedro123",
+    "email": "pedro@pedro.com",
+    "password": "123pedro123",
+    "password2": "123pedro123",
+    "images": "123.jpg"
+  },
+  {
+    "id": 4,
+    "name": "pedro123456",
+    "email": "pedro123456@otracuenta.com",
+    "password": "pepegrillo123",
+    "password2": "pepegrillo123",
+    "images": [
+      "no hay foto"
+    ]
+  }
 ]

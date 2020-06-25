@@ -3,29 +3,31 @@ var router = express.Router();
 const {check} = require('express-validator');
 const authMiddleware = require('../middlewares/authMiddleware')
 
-// const multer = require('multer');
-// const path = require('path');
-
 var userController = require("../controller/userController");
 
-// var storage = multer.diskStorage({
-//     destination: function (req, file, cb) {
-//       cb(null, 'public/images/products')
-//     },
-//     filename: function (req, file, cb) {
-//         cb(null, file.fieldname + '-' + Date.now()+path.extname(file.originalname))
-//     }
-//   })
 
+const multer = require('multer');
+const path = require('path');
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, 'public/images/products')
+    },
+    filename: function (req, file, cb) {
+        cb(null, file.fieldname + '-' + Date.now()+path.extname(file.originalname))
+    }
+  })
 
+  var upload = multer({ storage: storage });
 
 /* GET users listing. */
 router.get("/login",userController.login);
 router.get("/register",userController.register);
-router.get("/profile/:id",authMiddleware, userController.profile);
+router.get("/profile/:id",
+// authMiddleware, 
+userController.profile);
 
 
-router.post("/registerdata",userController.registerSave)
+router.post("/registerdata",upload.any(),userController.registerSave)
 router.post("/login",[
     check('email')
     .isEmail()

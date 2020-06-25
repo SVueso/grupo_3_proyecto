@@ -19,6 +19,8 @@ const {validationResult} = require('express-validator')
 const usersFilePath = './src/data/users.json';
 
 
+
+
 function getAllUsers() {
     let usersFileContent = fs.readFileSync(usersFilePath, 'utf-8');
     let users = usersFileContent != '' ? JSON.parse(usersFileContent) : [];
@@ -44,7 +46,6 @@ const userController = {
         if (errores != '') {
             res.render('login', {errores})
         }
-
         let usuario = getUserByEmail(req.body.email);
 
         if (usuario != undefined) {
@@ -61,18 +62,49 @@ const userController = {
         }
     },
     register:(req,res)=>{
-                
+       
         res.render('register',{csspath,compare:'/stylesheets/register-login-style.css'})
     },
-    registerSave:(req,res)=>{
-        var body=req.body
-        console.log(body)
-        res.send("hello")
-    },
+    registerSave:async (req,res)=>{
+        
+            console.log(req.files);
+            // chequeo que no sea undefined
+
+            let userAvatar = [];
+            if(req.files!=undefined){
+                req.files.forEach(file => {
+                    userAvatar.push(file.filename)
+                });
+            }else{
+                userAvatar.push("no hay foto")
+            }
+            
+            let newUser={
+                id: userdb.length > 0 ? userdb[userdb.length-1].id+1 : 1,
+                first_name:req.body.firstname,
+                last_name:req.body.lastname,
+                email: req.body.email,
+                telephone:req.body.telephone,
+                address:req.body.address,
+                number:req.body.addressnumber,
+                password: req.body.password,
+                password2: req.body.password2,
+                images: userAvatar
+                }
+                
+                let newDB=[...userdb,newUser]
+                fs.writeFileSync(userPath,JSON.stringify(newDB,null,2))
+                // AGREGAR QUE UNA VEZ QUE SE CREA LA CUENTA ABRA UNA SESSION 
+                // O PONGA COOKIES
+                
+            
+               await res.redirect('/user/profile/'+newUser.id)
+    
+},
     profile:(req,res)=>{
         var id=req.params.id
         var userData=userdb.find(user=>user.id==id)
-    res.render('users/profile',{csspath,compare:"/stylesheets/profile.css",user:userData,title:"Welcome "+userData.First_Name})
+    res.render('users/profile',{csspath,compare:"/stylesheets/profile.css",user:userData,title:"Welcome "+userData.name})
     },
 
 
