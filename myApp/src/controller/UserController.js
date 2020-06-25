@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const { dirname } = require('path');
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 
 var userPath=path.join(__dirname,"../data/users.json")
 var userdb=JSON.parse(fs.readFileSync(userPath,"utf-8"))
@@ -103,6 +103,7 @@ const userController = {
                 }
                 
                 let newDB=[...userdb,newUser]
+                console.log(newDB);
                fs.writeFileSync(userPath,JSON.stringify(newDB,null,2))
                 
                req.session.userId = newUser.id;
@@ -112,7 +113,10 @@ const userController = {
 },
     profile:(req,res)=>{
         var id=req.params.id
-        var userData=userdb.find(user=>user.id==id)
+        console.log(id);
+        var newUserdb=JSON.parse(fs.readFileSync(userPath,"utf-8"))
+        var userData=newUserdb.find(user=>user.id==id)
+        console.log(userData);
     res.render('users/profile',{csspath,compare:"/stylesheets/profile.css",user:userData,title:"Welcome "+userData.first_name})
     },
 

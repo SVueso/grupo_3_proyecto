@@ -66,5 +66,90 @@
     "image": [
       "userAvatar-1593057020766.png"
     ]
+  },
+  {
+    "id": 5,
+    "first_name": "Sebastian ",
+    "last_name": "Vueso",
+    "email": "sv@sv.com",
+    "telephone": "0111531421874",
+    "address": "16 Harcourt St",
+    "number": "",
+    "state": "Massachusetts",
+    "country": "Estados Unidos",
+    "zipcode": "02116",
+    "password": "$2a$10$KvYOHYAl6S3JPO0r6BwkF.kXXaR9WB4H9A30.WDnHlYD5d3OMFRwe",
+    "password2": "$2a$10$0ZzmEx/R8yz1M8gKsr37Q.PZS16SOmltL/L.uPe6d7KKCJ0SWr.mO",
+    "image": [
+      "userAvatar-1593060883440.jpg"
+    ]
+  },
+  {
+    "id": 6,
+    "first_name": "Sebastian ",
+    "last_name": "Vueso",
+    "email": "sv@sv.com",
+    "telephone": "0111531421874",
+    "address": "16 Harcourt St",
+    "number": "2562",
+    "state": "Massachusetts",
+    "country": "Estados Unidos",
+    "zipcode": "02116",
+    "password": "$2a$10$yysvaNr2otuv0y4pU2f5zuCt.Fpt1RGILn9LFoFLOut2he8QXIhOa",
+    "password2": "$2a$10$wyMxwoKymI75..EaOTZ7rekvyDh/bJUaBKDaXwLsFjeMJlwCO76Wy",
+    "image": [
+      "userAvatar-1593060913566.jpg"
+    ]
+  },
+  {
+    "id": 7,
+    "first_name": "Gabriel",
+    "last_name": "Frum",
+    "email": "gabi@gabi.com",
+    "telephone": "1234567654",
+    "address": "16 Harcourt St",
+    "number": "123",
+    "state": "Massachusetts",
+    "country": "Estados Unidos",
+    "zipcode": "02116",
+    "password": "$2a$10$/bk.pHY/va4s0xbC9R7I4.zgpshHJa7tR5MxktEiGp..tqQQIWTgK",
+    "password2": "$2a$10$uSUndgnWEqgrAgTyVnx/TO5/0RzF/guXNNuacIUFOXeuXwZWYcAuW",
+    "image": [
+      "userAvatar-1593061315456.jpg"
+    ]
+  },
+  {
+    "id": 8,
+    "first_name": "Gabriel",
+    "last_name": "Frum",
+    "email": "sv@sv.com",
+    "telephone": "213243563431",
+    "address": "16 Harcourt St",
+    "number": "32323",
+    "state": "Massachusetts",
+    "country": "Estados Unidos",
+    "zipcode": "02116",
+    "password": "$2a$10$gdKTVljVYo25hkNh4XlY/Oou4egSBZvYltaycD6tA54QjNjd//usy",
+    "password2": "$2a$10$.rgUAgZl7bmMVh6g9M01auOX5zUsHNYZFwSjPMyFsmph5FtYUAPCS",
+    "image": [
+      "userAvatar-1593061739956.jpg"
+    ]
+  },
+  {
+    "id": 9,
+    "first_name": "Gabriel",
+    "last_name": "Frum",
+    "email": "sebastian_vueso@hotmail.com",
+    "telephone": "34321234",
+    "address": "16 Harcourt St",
+    "number": "232",
+    "state": "Massachusetts",
+    "country": "Estados Unidos",
+    "zipcode": "02116",
+    "password": "$2a$10$Wj9vJbihzahfGtVHK.RpguzqmEIFtjP08NvmCIuIfshQIoP.Z8C9W",
+    "password2": "$2a$10$LbBuPOiHvh2luUWmvwVpGOUMB76kKtaFLC8JKyO5SDZm51wb5Chpq",
+    "image": [
+      "userAvatar-1593061921076.jpg"
+    ]
   }
 ]
