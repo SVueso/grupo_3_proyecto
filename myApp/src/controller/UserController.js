@@ -53,7 +53,7 @@ const userController = {
 
                 req.session.userId = usuario.id;
 
-                res.redirect(`users/profile/`+usuario.id)
+                res.redirect(`users/profile/`+usuario.id,{csspath,compare:"/stylesheets/profile.css",user:userData,title:"Welcome "+userData.name})
             } else {
                 res.send("The username or password is incorrect")
             }
@@ -76,7 +76,7 @@ const userController = {
                     userAvatar.push(file.filename)
                 });
             }else{
-                userAvatar.push("no hay foto")
+                userAvatar.push("nopicture.jpeg")
             }
             
             let newUser={
@@ -89,7 +89,7 @@ const userController = {
                 number:req.body.addressnumber,
                 password: req.body.password,
                 password2: req.body.password2,
-                images: userAvatar
+                image: userAvatar
                 }
                 
                 let newDB=[...userdb,newUser]

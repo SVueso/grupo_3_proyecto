@@ -1,36 +1,33 @@
-[
-  {
+[{
     "id": 1,
-    "name": "pepe123",
-    "email": "pepe@gmail.com",
-    "password": "123123",
-    "password2": "123123123",
-    "images": "123.jpg"
+    "first_name": "pedro",
+    "last_name": "jose",
+    "email": "pedro123456@otracuenta.com",
+    "telephone": "1231412313§",
+    "address": "hillway",
+    "number": "2731 8 floor",
+    "password": [
+      "asd123",
+      "asd123"
+    ],
+    "image": [
+      "userAvatar-1593052458305.jpg"
+    ]
   },
   {
     "id": 2,
-    "name": "pepe123",
-    "email": "pepe@gmail.com",
-    "password": "123123",
-    "password2": "123123123",
-    "images": "123.jpg"
-  },
-  {
-    "id": 3,
-    "name": "pedro123",
-    "email": "pedro@pedro.com",
-    "password": "123pedro123",
-    "password2": "123pedro123",
-    "images": "123.jpg"
-  },
-  {
-    "id": 4,
-    "name": "pedro123456",
+    "first_name": "juan",
+    "last_name": "jose",
     "email": "pedro123456@otracuenta.com",
-    "password": "pepegrillo123",
-    "password2": "pepegrillo123",
-    "images": [
-      "no hay foto"
+    "telephone": "1231412313§",
+    "address": "hillway",
+    "number": "2731 8 floor",
+    "password": [
+      "asd123",
+      "asd123"
+    ],
+    "image": [
+      "userAvatar-1593052458305.jpg"
     ]
   }
 ]
