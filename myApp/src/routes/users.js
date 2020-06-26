@@ -39,26 +39,26 @@ router.post("/registerdata",[
   .isEmail().withMessage("Please include a valid email address")
   .trim()
   .not().isEmpty().withMessage("The field cannot be empty"),
-  check('password', "The password must be at least 6 characters")
-  .isLength({min: 6}),
-  check('password2')
-  .not().isEmpty().withMessage('Enter a valid confirmation password')
-  .isLength({min: 6}),
-  check('telephone')
-  .not().isEmpty().withMessage('Telephone can not be empty')
+  check('password', "The password must be at least 6 characters").isLength({min: 6}),
+  check('password2','Enter a valid confirmation password').isLength({min: 6}),
+  check('telephone','Telephone can not be empty').not().isEmpty()
   .trim(),
-  check('address')
-  .not().isEmpty().withMessage('Address can not be empty'),
+  check('address','Address can not be empty')
+  .not().isEmpty()
+  .trim(),
   check('addressnumber')
-  .not().isEmpty().withMessage('Number can not be empty'),
+  .not().isEmpty().withMessage('Number can not be empty')
+  .trim(),
   check('zipcode')
-  .not().isEmpty().withMessage('Enter a valid ZipCode'),
+  .not().isEmpty().withMessage('Enter a valid ZipCode')
+  .trim(),
   check('state')
-  .not().isEmpty().withMessage('Enter a valid State'),
+  .not().isEmpty().withMessage('Enter a valid State')
+  .trim(),
   check('country')
-  .not().isEmpty().withMessage('Enter a valid Country'),
- 
-],upload.any(),userController.registerSave)
+  .not().isEmpty().withMessage('Enter a valid Country')
+  .trim()
+ ,upload.any()],userController.registerSave)
 router.post("/processLogin",[
     check('email')
     .isEmail()

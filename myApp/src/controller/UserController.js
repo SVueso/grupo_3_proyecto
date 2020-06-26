@@ -79,26 +79,30 @@ const userController = {
                 let userName = getUserinSession(req.session.userId); 
                 res.render('home',{csspath,compare:"/stylesheets/style.css",productos:productsdb,userName})
             } else {
-                res.send("The username or password is incorrect")
+                res.render('login',{message:"The username or password is incorrect"})
             }
         } else {
-            res.send("The username does not exist")
+            res.render('login',{message:"The username does not exist"})
         }
     },
     register:(req,res)=>{
        
         res.render('register',{csspath,compare:'/stylesheets/register-login-style.css'})
     },
-    registerSave: async (req,res)=>{
+    registerSave: (req,res)=>{
         
         
         let validation= validationResult(req)
-        let errors = validation.errors
-        console.log(errors);
         
-        if(errors!= ''){
-            res.render('register',{errors,csspath,compare:'/stylesheets/register-login-style.css'})
-        }
+        console.log(validation);
+        
+        if(!validation.isEmpty()){
+            console.log(validation.errors);
+           
+           return res.render('register',{errors:validation.errors,csspath,compare:'/stylesheets/register-login-style.css'})
+        }else{
+
+        
         
             let userAvatar = [];
             if(req.files!=undefined){
@@ -135,7 +139,7 @@ const userController = {
                 res.cookie('userCookie',newUser.id,{maxAge:9999999999})
             }
             
-            res.redirect('/user/profile/'+newUser.id)
+            res.redirect('/user/profile/'+newUser.id)}
     
 },
     profile:(req,res)=>{

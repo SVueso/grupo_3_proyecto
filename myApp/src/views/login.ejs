@@ -6,6 +6,9 @@
 
     <h1>Login</h1>
     <div class="container">    
+        <% if (typeof message!='undefined') { %>
+         <p class="errores"><%= message %></p> 
+        <% } %>
     <% if (typeof errores != 'undefined') { %>
         <% errores.forEach(error => { %>
             <p class="errores"><%= error.msg %></p>
@@ -28,7 +31,7 @@
         </form>
 
         <div class="register">
-            Click here to <a href="">Register</a>
+            Click here to <a href="/user/register">Register</a>
         </div>  
 
  
