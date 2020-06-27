@@ -236,6 +236,22 @@
     "image": [
       "userAvatar-1593097567384.jpg"
     ]
+  },
+  {
+    "id": 15,
+    "first_name": "Cata",
+    "last_name": "castelli",
+    "email": "catacastelli@gmail.com",
+    "telephone": "1164773550",
+    "address": "eva peron",
+    "number": "3300",
+    "state": "BS PROVINCIA",
+    "country": "Argentina",
+    "zipcode": "1619",
+    "password": "$2a$10$ZzJ3OgnNPYe1LPrpce10MO/hpuxBkzWirjTl3viXvwr3FJ8AWQ.x.",
+    "password2": "$2a$10$b1mBqic7kDwb2n9BcMWR6uHgKIC878iEsaq5L6eYQhLSJr3ocmpK.",
+    "image": [
+      "userAvatar-1593225766368.png"
+    ]
   }
-  
 ]

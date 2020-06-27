@@ -28,7 +28,7 @@ router.get("/logout",userController.logout);
 
 
 
-router.post("/registerdata",[
+router.post("/registerdata",upload.any(),[
   check('firstname')
   .not().isEmpty().withMessage('First Name can not be empty')
   .trim(),
@@ -58,7 +58,7 @@ router.post("/registerdata",[
   check('country')
   .not().isEmpty().withMessage('Enter a valid Country')
   .trim()
- ,upload.any()],userController.registerSave)
+ ],userController.registerSave)
 router.post("/processLogin",[
     check('email')
     .isEmail()

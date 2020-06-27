@@ -94,12 +94,13 @@ const userController = {
         
         let validation= validationResult(req)
         
-        console.log(validation);
+        
         
         if(!validation.isEmpty()){
-            console.log(validation.errors);
+           var errors=validation.errors
+           console.log(errors)
            
-           return res.render('register',{errors:validation.errors,csspath,compare:'/stylesheets/register-login-style.css'})
+           return res.render('register',{errors:errors,csspath,compare:'/stylesheets/register-login-style.css'})
         }else{
 
         
