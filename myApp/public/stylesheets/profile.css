@@ -43,6 +43,12 @@
 width: 100%;
 }
 
+.foto-error{
+    color: red;
+    font-size: large;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
 .logoutbtn{
     background-color: var(--brand);
     color:white;

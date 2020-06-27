@@ -6,8 +6,8 @@
 <body>
     <section class="data-box">
         <div class="image-box">
-            <% if (user.image==undefined) { %>
-             <h3>No tienes foto de perfil</h3>
+            <% if (user.image=="") { %>
+             <h3 class="foto-error">No tienes foto de perfil</h3>
             <% } %>
             <img class="image"src="/images/users/<%= user.image %>" alt="">
         </div>

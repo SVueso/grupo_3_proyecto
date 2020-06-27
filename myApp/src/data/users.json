@@ -253,5 +253,20 @@
     "image": [
       "userAvatar-1593225766368.png"
     ]
+  },
+  {
+    "id": 16,
+    "first_name": "Mateo",
+    "last_name": "Barbato",
+    "email": "mateobarbato1@hotmail.com",
+    "telephone": "1141234912",
+    "address": "eva peron",
+    "number": "3300",
+    "state": "BS PROVINCIA",
+    "country": "Argentina",
+    "zipcode": "1619",
+    "password": "$2a$10$QgNXovmY4GXl..W9RDw4wuXwe1GZng5ScTP.vp4MHBWS.Jxrese3u",
+    "password2": "$2a$10$z8NQwU51WTDK1PsmNTlOf.z/YLF37NOox11pWrp3CeDWMRPmj/3Ae",
+    "image": []
   }
 ]

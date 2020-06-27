@@ -129,12 +129,13 @@ const userController = {
                 password2:bcrypt.hashSync(req.body.password2,10),
                 image: userAvatar
                 }
-                
+            
+            req.session.userId = newUser.id;
             let newDB=[...userdb,newUser]
             // console.log(newDB);
             fs.writeFileSync(userPath,JSON.stringify(newDB,null,2))
                 
-            req.session.userId = newUser.id;
+            
 
             if(req.body.rememberMe){
                 res.cookie('userCookie',newUser.id,{maxAge:9999999999})
