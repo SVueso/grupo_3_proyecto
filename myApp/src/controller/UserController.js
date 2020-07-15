@@ -9,6 +9,8 @@ let productsdbFilePath = path.join(__dirname, '../data/products.json');
 let products = fs.readFileSync(productsdbFilePath, 'utf-8') || "[]";
 let productsdb = JSON.parse(products);
 
+const DB = require('../database/models');
+
 var csspath=["/stylesheets/index.css",
 "/stylesheets/style.css",
 "/stylesheets/detalle.css",
@@ -144,12 +146,15 @@ const userController = {
             res.redirect('/user/profile/'+newUser.id)}
     
 },
-    profile:(req,res)=>{
-        var id=req.session.userId;
-        var newUserdb=JSON.parse(fs.readFileSync(userPath,"utf-8"))
-        var userData=newUserdb.find(user=>user.id==id)
-        let userName = getUserinSession(req.session.userId); 
-        res.render('users/profile',{csspath,compare:"/stylesheets/profile.css",user:userData,title:"Welcome "+userData.first_name,userName})
+    profile: async (req,res)=>{
+
+        const user = await DB.User.findByID(req.session.userId);
+        // var id=req.session.userId;
+        // var newUserdb=JSON.parse(fs.readFileSync(userPath,"utf-8"))
+        // var userData=newUserdb.find(user=>user.id==id)
+        // let userName = getUserinSession(req.session.userId); 
+        res.render('users/profile',{csspath,compare:"/stylesheets/profile.css", user})
+        // user:userData,title:"Welcome "+userData.first_name,userName, 
         },
     logout:(req,res)=>{
         req.session.destroy();

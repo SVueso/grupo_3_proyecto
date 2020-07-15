@@ -1,15 +1,18 @@
 module.exports= function(sequelize,DataTypes){
-    const Category = sequelize.define(
+    const user = sequelize.define(
         // primer parametro, nombre
-        'Category',
+        'User',
         // segundo, un objeto literal aclarando los valores de los datos
         {
             id:{
                 type:DataTypes.INTEGER,
                 autoincrement: true,
                 primaryKey:true},
-            title:DataTypes.VARCHAR,
-            image:DataTypes.VARCHAR
+            firstName:DataTypes.STRING,
+            lastName:DataTypes.STRING,
+            image:DataTypes.STRING,
+            address:DataTypes.STRING,
+            zipcode:DataTypes.STRING
         },
         
         {
@@ -18,5 +21,5 @@ module.exports= function(sequelize,DataTypes){
 
         }
     );
-    return Category
+    return user
 }
