@@ -27,22 +27,25 @@ var compare
 const {validationResult} = require('express-validator')
 const usersFilePath = './src/data/users.json';
 
-function getAllUsers() {
-    let usersFileContent = fs.readFileSync(usersFilePath, 'utf-8');
-    let users = usersFileContent != '' ? JSON.parse(usersFileContent) : [];
+async function getAllUsers() {
+    
+    let users = await DB.User.findAll()
     return users;
 }
 
-function getUserByEmail(userEmail) {
+async function getUserByEmail(userEmail) {
     let allUsers= getAllUsers();
-    let theUser = allUsers.find(oneUser => oneUser.email == userEmail);
+    let theUser = await DB.User.findAll({where:{
+        email:userEmail
+    }})
     return theUser;
 }
 
-function getUserinSession(id){
+async function getUserinSession(id){
     if(id){
         let users = getAllUsers();
-        let theUser = users.find(user=> user.id==id);
+        let theUser = await DB.User.findByPk(id)
+        // users.find(user=> user.id==id);
         return theUser.first_name;
     }
     else{
@@ -53,6 +56,7 @@ function getUserinSession(id){
 const userController = {
 // CREAR VARIABLE EN EL CONTROLLER PARA PODER PASARLE A LA VISTA Y COMPARAR LAS VISTAS PARA EJECUTAR LA CORRECTA
     login:(req,res)=>{
+        
        
         res.render('login',{csspath,compare:'/stylesheets/register-login-style.css'})
     },
@@ -81,10 +85,10 @@ const userController = {
                 let userName = getUserinSession(req.session.userId); 
                 res.render('home',{csspath,compare:"/stylesheets/style.css",productos:productsdb,userName})
             } else {
-                res.render('login',{message:"The username or password is incorrect"})
+                res.render('login',{csspath,compare:"/stylesheets/style.css",message:"The username or password is incorrect"})
             }
         } else {
-            res.render('login',{message:"The username does not exist"})
+            res.render('login',{csspath,compare:'/stylesheets/register-login-style.css',message:"The username does not exist"})
         }
     },
     register:(req,res)=>{
@@ -147,12 +151,16 @@ const userController = {
     
 },
     profile: async (req,res)=>{
-
-        const user = await DB.User.findByID(req.session.userId);
-        // var id=req.session.userId;
+        var id=req.session.userId;
+        const user = await DB.User.findAll({where:{
+            id:id
+        }});
+        
         // var newUserdb=JSON.parse(fs.readFileSync(userPath,"utf-8"))
         // var userData=newUserdb.find(user=>user.id==id)
         // let userName = getUserinSession(req.session.userId); 
+
+        res.send(user)
         res.render('users/profile',{csspath,compare:"/stylesheets/profile.css", user})
         // user:userData,title:"Welcome "+userData.first_name,userName, 
         },

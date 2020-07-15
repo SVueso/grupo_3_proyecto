@@ -6,6 +6,9 @@ let collections = JSON.parse(fs.readFileSync(collectionsFilePath, 'utf-8'));
 let products = fs.readFileSync(productsdbFilePath, 'utf-8') || "[]";
 let productsdb = JSON.parse(products);
 
+const DB = require('../database/models');
+const Product= DB.Product
+
 var csspath=["/stylesheets/index.css",
 "/stylesheets/style.css",
 "/stylesheets/detalle.css",
@@ -37,8 +40,14 @@ const adminController = {
         });
 
         //Nuevo producto a agregar a la db
-        let newProduct={
-            id: productsdb.length > 0 ? productsdb[productsdb.length-1].id+1 : 1,
+        // let newProduct={
+            
+        // };
+        
+
+        try{
+           await DB.Product.create({
+               id: productsdb.length > 0 ? productsdb[productsdb.length-1].id+1 : 1,
             name:req.body.productName,
             description: req.body.productDescription,
             collection: req.body.collection,
@@ -48,12 +57,20 @@ const adminController = {
             cost: req.body.cost,
             sku: req.body.sku,
             stock: req.body.stock
-        };
-        console.log(newProduct);
+           })
+            res.redirect('/home')
+        }
+        catch (error){
+            console.log('El error es:'+error)
+        }
+
+
+    
+        
         // Agrego el producto a la db
-        let newDB=[...productsdb,newProduct];
-        fs.writeFileSync(productsdbFilePath,JSON.stringify(newDB,null,2));
-        res.redirect("/admin");
+        // let newDB=[...productsdb,newProduct];
+        // fs.writeFileSync(productsdbFilePath,JSON.stringify(newDB,null,2));
+        // res.redirect("/admin");
         // let updatedDB = JSON.parse(fs.readFileSync(productsdbFilePath, 'utf-8'));
         // res.render("allProducts",{csspath,compare:"/stylesheets/style.css",productos:updatedDB});
     },
