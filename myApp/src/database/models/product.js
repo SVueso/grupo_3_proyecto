@@ -9,9 +9,9 @@ module.exports= function(sequelize,DataTypes){
                 autoincrement: true,
                 primaryKey:true},
             title:DataTypes.STRING,
+            price:DataTypes.INTEGER,
             discount:DataTypes.STRING,
             description:DataTypes.STRING,
-            price:DataTypes.INTEGER,
             stock:DataTypes.INTEGER,
         },
        
