@@ -14,3 +14,13 @@ Retrospectiva:
 2. Se trabajo de forma individual respecto al css y html, generando problemas al trabajar en conjunto y en el dise�o poco uniforme de la pagina.
 3. No consideramos lo suficiente las interrelaciones entre paginas y dise�os, dificultando la unificacion del proyecto.(No nos dimos cuenta que el carrito iba adentro del header )
 4. No consideramos la union de las partes del proyecto al momento de nombrar las clases.
+
+
+Sprint 4
+
+Retrospectiva:
+
+1. Nos costó poder darnos cuenta cuáles rutas serían de huéspedes y cuales serian sólo de usuarios.
+2. Pudimos ayudarnos entre nosotros a resolver errores que sólos no pudimos resolver.
+3. No consideramos la validación desde el HTML.
+4. Pudimos implementar conjuntamente las tareas respecto al CSS y HTML.
