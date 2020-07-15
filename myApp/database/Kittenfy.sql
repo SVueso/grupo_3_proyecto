@@ -24,8 +24,8 @@ DROP TABLE IF EXISTS `Categories`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Categories` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `Title` varchar(45) DEFAULT NULL,
-  `Image` varchar(45) DEFAULT NULL,
+  `title` varchar(45) DEFAULT NULL,
+  `image` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -41,60 +41,60 @@ INSERT INTO `Categories` VALUES (1,'pantis','image.jpg');
 UNLOCK TABLES;
 
 --
--- Table structure for table `Categories_has_Productos`
+-- Table structure for table `Categories_Products`
 --
 
-DROP TABLE IF EXISTS `Categories_has_Productos`;
+DROP TABLE IF EXISTS `Categories_Products`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Categories_has_Productos` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
-  `Categories_id` int(11) NOT NULL,
-  `Productos_id` int(11) NOT NULL,
-  PRIMARY KEY (`Id`,`Categories_id`,`Productos_id`),
-  KEY `fk_Categories_has_Productos_Productos1_idx` (`Productos_id`),
-  KEY `fk_Categories_has_Productos_Categories_idx` (`Categories_id`),
-  CONSTRAINT `fk_Categories_has_Productos_Categories` FOREIGN KEY (`Categories_id`) REFERENCES `Categories` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Categories_has_Productos_Productos1` FOREIGN KEY (`Productos_id`) REFERENCES `Productos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+CREATE TABLE `Categories_Products` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `categories_id` int(11) NOT NULL,
+  `products_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`,`categories_id`,`products_id`),
+  KEY `fk_Categories_has_Productos_Categories_idx` (`categories_id`),
+  KEY `fk_Categories_Products_Products1_idx` (`products_id`),
+  CONSTRAINT `fk_Categories_Products_Categories` FOREIGN KEY (`categories_id`) REFERENCES `Categories` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Categories_Products_Products1` FOREIGN KEY (`products_id`) REFERENCES `Products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Categories_has_Productos`
+-- Dumping data for table `Categories_Products`
 --
 
-LOCK TABLES `Categories_has_Productos` WRITE;
-/*!40000 ALTER TABLE `Categories_has_Productos` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Categories_has_Productos` ENABLE KEYS */;
+LOCK TABLES `Categories_Products` WRITE;
+/*!40000 ALTER TABLE `Categories_Products` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Categories_Products` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `Productos`
+-- Table structure for table `Products`
 --
 
-DROP TABLE IF EXISTS `Productos`;
+DROP TABLE IF EXISTS `Products`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Productos` (
+CREATE TABLE `Products` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `Titulo` varchar(45) DEFAULT NULL,
-  `Price` varchar(45) DEFAULT NULL,
-  `Discount` varchar(45) DEFAULT NULL,
-  `Image` varchar(45) DEFAULT NULL,
-  `Description` varchar(45) DEFAULT NULL,
-  `Stock` varchar(45) DEFAULT NULL,
+  `titulo` varchar(45) DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
+  `discount` varchar(45) DEFAULT NULL,
+  `image` varchar(45) DEFAULT NULL,
+  `description` varchar(45) DEFAULT NULL,
+  `stock` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Productos`
+-- Dumping data for table `Products`
 --
 
-LOCK TABLES `Productos` WRITE;
-/*!40000 ALTER TABLE `Productos` DISABLE KEYS */;
-INSERT INTO `Productos` VALUES (1,'Gatitos','123','12','gatitos.jpg','gatitos jpg ','12');
-/*!40000 ALTER TABLE `Productos` ENABLE KEYS */;
+LOCK TABLES `Products` WRITE;
+/*!40000 ALTER TABLE `Products` DISABLE KEYS */;
+INSERT INTO `Products` VALUES (1,'Gatitos',123,'12','gatitos.jpg','gatitos jpg ',12),(2,'Cat Toy',123,'41','cattoy.jpg','a toy for cats',90);
+/*!40000 ALTER TABLE `Products` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -106,11 +106,11 @@ DROP TABLE IF EXISTS `Users`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `First_Name` varchar(45) DEFAULT NULL,
-  `Last_Name` varchar(45) DEFAULT NULL,
-  `Image` varchar(45) DEFAULT NULL,
-  `Address` varchar(45) DEFAULT NULL,
-  `Zip code` varchar(45) DEFAULT NULL,
+  `first_name` varchar(45) DEFAULT NULL,
+  `last_name` varchar(45) DEFAULT NULL,
+  `image` varchar(45) DEFAULT NULL,
+  `address` varchar(45) DEFAULT NULL,
+  `zip code` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -134,4 +134,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-07-14 11:32:34
+-- Dump completed on 2020-07-15 11:48:14
