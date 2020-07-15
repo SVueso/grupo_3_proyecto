@@ -40,25 +40,24 @@ const adminController = {
         });
 
         //Nuevo producto a agregar a la db
-        // let newProduct={
+        let newProduct={
             
-        // };
-        
-
+            // collection: req.body.collection,
+            // cost: req.body.cost,
+            // sku: req.body.sku,
+        };
+        // console.log(newProduct)
+        console.log(req.body)
         try{
            await DB.Product.create({
-               id: productsdb.length > 0 ? productsdb[productsdb.length-1].id+1 : 1,
-            name:req.body.productName,
-            description: req.body.productDescription,
-            collection: req.body.collection,
-            images: productImages,
+            title:req.body.productName,
             price: req.body.price,
             discount: req.body.discount,
-            cost: req.body.cost,
-            sku: req.body.sku,
+            image: req.files[0].filename,
+            description: req.body.productDescription,
             stock: req.body.stock
            })
-            res.redirect('/home')
+            res.redirect('/')
         }
         catch (error){
             console.log('El error es:'+error)
@@ -76,31 +75,51 @@ const adminController = {
     },
     editProduct: async (req,res) => {
         //Hago un array con todos los nombres de las imagenes cargadas
-        let id=req.params.id
+        let idToEdit=req.params.id
         let producto=productsdb.find(producto=>producto.id==id)
-        for (let i = 0; i < req.files.length; i++) {
-             var objpush = req.files[i].filename
-             var productImages=[...producto.images,...objpush]
-        }
+        // for (let i = 0; i < req.files.length; i++) {
+        //      var objpush = req.files[i].filename
+        //      var productImages=[...producto.images,...objpush]
+        // }
         // req.files.forEach(file => {
         //     productImages.push(file.filename)
         // });
 // ME TIRA ERROR CANNOT READ PROPERTY OF "IMAGES" OF UNDEFINED
-        productsdb.forEach(product =>{ if(product.id == id) {
-            // id = id,
-            product.name=req.body.productName;
-            product.description= req.body.productDescription;
-            product.collection= req.body.collection;
-            product.images= productImages,
-            product.price= req.body.price;
-            product.discount= req.body.discount;
-            product.cost= req.body.cost;
-            product.sku= req.body.sku;
-            product.stock= req.body.stock;
-        }});
-            let actProduct=JSON.stringify(productsdb);
-            fs.writeFileSync(productsdbFilePath,actProduct, null,2)
-            let products = JSON.parse(fs.readFileSync(productsdbFilePath, 'utf-8'));
+        // productsdb.forEach(product =>{ if(product.id == id) {
+        //     // id = id,
+        //     product.name=req.body.productName;
+        //     product.description= req.body.productDescription;
+        //     product.collection= req.body.collection;
+        //     product.images= productImages,
+        //     product.price= req.body.price;
+        //     product.discount= req.body.discount;
+        //     product.cost= req.body.cost;
+        //     product.sku= req.body.sku;
+        //     product.stock= req.body.stock;
+        // }});
+            // let actProduct=JSON.stringify(productsdb);
+            // fs.writeFileSync(productsdbFilePath,actProduct, null,2)
+            // let products = JSON.parse(fs.readFileSync(productsdbFilePath, 'utf-8'));
+            try{
+            DB.User.update({
+                
+            title:req.body.productName,
+            price: req.body.price,
+            discount: req.body.discount,
+            image: req.files.filename,
+            // Images no anda
+            description: req.body.productDescription,
+            stock: req.body.stock
+            },{
+                where:{
+                    id:idToEdit
+                }
+            })
+        }
+        catch(error){
+            console.log("el error es: "+ error);
+            
+        }
             res.render('home',{csspath,compare:"/stylesheets/style.css",productos:products})
         
     },
@@ -114,9 +133,12 @@ const adminController = {
     },
     delete:async(req,res)=>{
         let deleteid=req.params.id
-        let newDataBase=productsdb.filter(product=>product.id!=deleteid)
-        let newdataBaseJS=JSON.stringify(newDataBase, null, 2)
-        fs.writeFileSync(productsdbFilePath,newdataBaseJS);
+        // let newDataBase=productsdb.filter(product=>product.id!=deleteid)
+        // let newdataBaseJS=JSON.stringify(newDataBase, null, 2)
+        // fs.writeFileSync(productsdbFilePath,newdataBaseJS);
+        DB.Product.destroy({where:{
+            id:deleteid
+        }})
         res.redirect('/admin')
     }
 };
