@@ -23,7 +23,7 @@
                     
                     <div class="foto-box-img-box">
  <!-- ><><><><><><><><><><><><><><><><><><><>ANIADIR EL JPG DE LA FOTO VINCULADO A LA DB<><><><><><><><><><><><><><><><><><><><><><>< -->
-                    <img src="/images/products/<%= productDetail.images[0] %> " alt="">
+                    <img src="/images/products/<%= productDetail.image%> " alt="">
                     </div>
                     <div class="other-img-box">
                         <% for( let i = 0; i < productDetail.images.length; i++ ) { %>
@@ -40,7 +40,7 @@
                 </div>
                     <div class="product-box">
                     <div class="product-box-box">
-                        <h1 class="product-title"><%= productDetail.name %> </h1>
+                        <h1 class="product-title"><%= productDetail.title %> </h1>
                         
                         <div class="padding-top">            
                             <!-- aca va todo lo de la columna de precio -->
@@ -122,11 +122,11 @@
             </div>
             <div class="product-description">
                 <div class="descripcion-texto">
-                   <% for( let i = 0; i < productDetail.description.length; i++ ) { %>
+                   
                      
-                    <div ><%= productDetail.description[i] %> </div>
+                    <div ><%= productDetail.description%> </div>
                     
-                    <% } %>
+                
                 </div>
                 
                 <div class="descripcion-texto">
