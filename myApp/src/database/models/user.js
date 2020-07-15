@@ -8,11 +8,20 @@ module.exports= function(sequelize,DataTypes){
                 type:DataTypes.INTEGER,
                 autoincrement: true,
                 primaryKey:true},
-            firstName:DataTypes.STRING,
-            lastName:DataTypes.STRING,
-            image:DataTypes.STRING,
+            first_name:DataTypes.STRING,
+            last_name:DataTypes.STRING,
+            password:DataTypes.STRING,
+            password2:DataTypes.STRING,
+            telephone:DataTypes.STRING,
             address:DataTypes.STRING,
-            zipcode:DataTypes.STRING
+            number:DataTypes.STRING,
+            zipcode:DataTypes.STRING,
+            state:DataTypes.STRING,
+            country:DataTypes.STRING,
+            image:DataTypes.STRING,
+           
+            
+
         },
         
         {
