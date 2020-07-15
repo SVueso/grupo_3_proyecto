@@ -43,7 +43,7 @@ const productController = {
     },
     home: async (req,res)=>{
 
-        const categories = await DB.Category.findById(req.session.userId);
+        const categories = await DB.Category.findByPk(req.session.userId);
 
         // let userName = getUserinSession(req.session.userId); 
 
@@ -51,14 +51,15 @@ const productController = {
     },
     detalle: async (req,res)=>{
 
-        const products = await DB.Product.findAll();
+        const products = await DB.Product.findByPk(req.params.id);
         // var id=req.params.id;
         // var productDetail=productsdb.find(product=>product.id==id)
         // let userName = getUserinSession(req.session.userId); 
 
         res.render('detalle',{csspath,compare:"/stylesheets/detalle.css", products});
 
-        // res.send(productos)
+        // res.send(products)
+        // console.log(products.image);
 
         // productDetail, userName,
     },
