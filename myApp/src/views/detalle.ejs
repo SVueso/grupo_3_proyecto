@@ -23,16 +23,14 @@
                     
                     <div class="foto-box-img-box">
  <!-- ><><><><><><><><><><><><><><><><><><><>ANIADIR EL JPG DE LA FOTO VINCULADO A LA DB<><><><><><><><><><><><><><><><><><><><><><>< -->
-                    <img src="/images/products/<%= productDetail.image%> " alt="">
+                    <img src="/images/products/<%= products.image%> " alt="">
                     </div>
                     <div class="other-img-box">
-                        <% for( let i = 0; i < productDetail.images.length; i++ ) { %>
+                        
                             <div class="other-img">
-                                <img src="/images/products/<%= productDetail.images[i] %> " alt="">
+                                <img src="/images/products/<%= products.image %> " alt="">
                             </div>
 
-
-                        <% } %>
 
                         
                         
@@ -40,20 +38,20 @@
                 </div>
                     <div class="product-box">
                     <div class="product-box-box">
-                        <h1 class="product-title"><%= productDetail.title %> </h1>
+                        <h1 class="product-title"><%= products.title %> </h1>
                         
                         <div class="padding-top">            
                             <!-- aca va todo lo de la columna de precio -->
                             <div class="precio-box">
-                                <% if (productDetail.discount>0) { %>
-                                    <div class="precio-total">$<%= productDetail.price %> </div>
+                                <% if (products.discount>0) { %>
+                                    <div class="precio-total">$<%= products.price %> </div>
                                     <!-- ><><><><><><><><><><><><><><><><PRODUCT.PRICE-PRODUCT.DISCOUNT=VALUE><><><><><><><><><><><><><><>< -->
-                                    <div class="precio-final">$<%= ((productDetail.price)-(productDetail.price)*(productDetail.discount/100)) %> </div>
+                                    <div class="precio-final">$<%= ((products.price)-(products.price)*(products.discount/100)) %> </div>
                                 
                                 <% } else { %>
                                  
                                 <!-- ><><><><><><><><><><><><><><><><PRODUCT.PRICE><><><><><><><><><><>< -->
-                                    <div class="precio-final">$<%= productDetail.price %> </div>             
+                                    <div class="precio-final">$<%= products.price %> </div>             
                                     <% } %>
                             </div>
                               <!--   ><><><><><><><><><><><><><><><><>ESTE FORM NECESITA UN ACTION<><><><><><><><><><><><><><><><><><><><><><>< -->
@@ -124,7 +122,7 @@
                 <div class="descripcion-texto">
                    
                      
-                    <div ><%= productDetail.description%> </div>
+                    <div ><%= products.description%> </div>
                     
                 
                 </div>

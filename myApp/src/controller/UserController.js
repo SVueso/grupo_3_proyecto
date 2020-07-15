@@ -148,7 +148,7 @@ const userController = {
 },
     profile: async (req,res)=>{
 
-        const user = await DB.User.findByID(req.session.userId);
+        const user = await DB.User.findByPk(req.session.userId);
         // var id=req.session.userId;
         // var newUserdb=JSON.parse(fs.readFileSync(userPath,"utf-8"))
         // var userData=newUserdb.find(user=>user.id==id)
