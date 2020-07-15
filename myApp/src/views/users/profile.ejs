@@ -6,7 +6,7 @@
 <body>
     <section class="data-box">
         <div class="image-box">
-            <% if (user.image=="") { %>
+            <% if (user.image==null) { %>
              <h3 class="foto-error">No tienes foto de perfil</h3>
             <% } %>
             <img class="image"src="/images/users/<%= user.image %>" alt="">

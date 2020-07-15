@@ -148,12 +148,14 @@ const userController = {
 },
     profile: async (req,res)=>{
 
-        const user = await DB.User.findByPk(req.session.userId);
-        // var id=req.session.userId;
+        var id=req.session.userId;
+        var user = await DB.User.findAll({where: {id: id}});
         // var newUserdb=JSON.parse(fs.readFileSync(userPath,"utf-8"))
         // var userData=newUserdb.find(user=>user.id==id)
         // let userName = getUserinSession(req.session.userId); 
         res.render('users/profile',{csspath,compare:"/stylesheets/profile.css", user})
+        // res.send(user);
+        console.log(user);
         // user:userData,title:"Welcome "+userData.first_name,userName, 
         },
     logout:(req,res)=>{
