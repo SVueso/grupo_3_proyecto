@@ -9,7 +9,7 @@
         <form class="select-container" action="/admin/product-edit-id" method="GET">            
             <select class="desplegable" name="id">
             <% productsdb.forEach(product => { %>
-                <option value="<%- product.id %>"><%- product.name %></option>         
+                <option value="<%- product.id %>"><%- product.title %></option>         
                 <% }) %>
             </select>
             <button type="submit" class="buttonAdmin">EDIT</button>

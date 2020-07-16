@@ -13,10 +13,19 @@ module.exports= function(sequelize,DataTypes){
         },
         
         {
-            tableName:"",
+            tableName:"categories",
             timestamps:false,
 
         }
     );
+    Category.associate = function(models){
+        Category.belongsToMany(models.products, {
+            as: "products",
+            through: "categories_products",
+            foreignKey: "products_id",
+            timestamps: false
+
+        })
+    }
     return Category
 }

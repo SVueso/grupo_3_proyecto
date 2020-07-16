@@ -80,11 +80,12 @@ const userController = {
                     res.cookie('userCookie',usuario.id,{maxAge:9999999999})
                 }
                 let userName = await getUserinSession(req.session.userId); 
-                res.render('home',{csspath,compare:"/stylesheets/style.css",productos:productsdb,userName})
+                res.redirect("/home")
+                // res.render('home',{csspath,compare:"/stylesheets/style.css",productos:productsdb,userName})
                 // ESTO ESTA MAL, HAY QUE REDIRIGIRLO A /HOME, SINO SE QUEDA EN PROCESSLOGIN Y NO ESTA BIEN!
 
             } else {
-                res.render('login',{csspath,compare:"/stylesheets/style.css",message:"The username or password is incorrect"})
+                res.render('login',{csspath,compare:"/stylesheets/register-login-style.css",message:"The username or password is incorrect"})
             }
         } else {
             res.render('login',{csspath,compare:'/stylesheets/register-login-style.css',message:"The username does not exist"})

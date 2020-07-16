@@ -48,14 +48,21 @@ const adminController = {
         };
         // console.log(newProduct)
         console.log(req.body)
+        
         try{
            await DB.Product.create({
             title:req.body.productName,
             price: req.body.price,
             discount: req.body.discount,
-            image: req.files[0].filename,
+            image: req.files[0]==undefined?"":req.files[0].filename,
+            imageb: req.files[1]==undefined?"":req.files[1].filename,
+            imagec: req.files[2]==undefined?"":req.files[2].filename,
+            imaged: req.files[3]==undefined?"":req.files[3].filename,
             description: req.body.productDescription,
-            stock: req.body.stock
+            stock: req.body.stock,
+            cost: req.body.cost,
+            sku: req.body.sku
+        
            })
             res.redirect('/')
         }
@@ -63,9 +70,6 @@ const adminController = {
             console.log('El error es:'+error)
         }
 
-
-    
-        
         // Agrego el producto a la db
         // let newDB=[...productsdb,newProduct];
         // fs.writeFileSync(productsdbFilePath,JSON.stringify(newDB,null,2));
@@ -76,7 +80,7 @@ const adminController = {
     editProduct: async (req,res) => {
         //Hago un array con todos los nombres de las imagenes cargadas
         let idToEdit=req.params.id
-        let producto=productsdb.find(producto=>producto.id==id)
+        // let producto=productsdb.find(producto=>producto.id==id)
         // for (let i = 0; i < req.files.length; i++) {
         //      var objpush = req.files[i].filename
         //      var productImages=[...producto.images,...objpush]
@@ -100,42 +104,86 @@ const adminController = {
             // let actProduct=JSON.stringify(productsdb);
             // fs.writeFileSync(productsdbFilePath,actProduct, null,2)
             // let products = JSON.parse(fs.readFileSync(productsdbFilePath, 'utf-8'));
-            try{
-            DB.User.update({
+            if(req.files[0]==undefined){
+                try{
+                    DB.Product.update({
+                        
+                    title:req.body.productName,
+                    price: req.body.price,
+                    discount: req.body.discount,
+                    description: req.body.productDescription,
+                    stock: req.body.stock,
+                    cost: req.body.cost,
+                    sku: req.body.sku   
+                    },{
+                        where:{
+                            id:idToEdit
+                        }
+                    })
+                } catch(error){
+                console.log("el error es: "+ error);
                 
-            title:req.body.productName,
-            price: req.body.price,
-            discount: req.body.discount,
-            image: req.files.filename,
-            // Images no anda
-            description: req.body.productDescription,
-            stock: req.body.stock
-            },{
-                where:{
-                    id:idToEdit
+            }
+            } 
+            else {
+                try{
+                    DB.Product.update({
+                        
+                    title:req.body.productName,
+                    price: req.body.price,
+                    discount: req.body.discount,
+                    image: req.files[0]==undefined?"":req.files[0].filename,
+                    imageb: req.files[1]==undefined?"":req.files[1].filename,
+                    imagec: req.files[2]==undefined?"":req.files[2].filename,
+                    imaged: req.files[3]==undefined?"":req.files[3].filename,
+                    description: req.body.productDescription,
+                    stock: req.body.stock,
+                    cost: req.body.cost,
+                    sku: req.body.sku   
+                    },{
+                        where:{
+                            id:idToEdit
+                        }
+                    })
                 }
-            })
-        }
-        catch(error){
-            console.log("el error es: "+ error);
-            
-        }
-            res.render('home',{csspath,compare:"/stylesheets/style.css",productos:products})
+                catch(error){
+                    console.log("el error es: "+ error);
+                    
+                }
+            }
+        //     try{
+        //     DB.Product.update({
+                
+        //     title:req.body.productName,
+        //     price: req.body.price,
+        //     discount: req.body.discount,
+        //     image: req.files[0].filename,
+        //     // Image no anda
+        //     description: req.body.productDescription,
+        //     stock: req.body.stock
+        //     },{
+        //         where:{
+        //             id:idToEdit
+        //         }
+        //     })
+        // }
+            let products= await DB.Product.findAll()
+            console.log(products)
+            res.render('home',{csspath,compare:"/stylesheets/style.css",productos:products[0]})
         
     },
     productEdit: async (req,res) => {
-        res.render('product-edit-choose',{productsdb,csspath,compare:"/stylesheets/admin.css"});
+        let productsql = await DB.Product.findAll()
+        res.render('product-edit-choose',{productsdb:productsql,csspath,compare:"/stylesheets/admin.css"});
     },
-    productEditId:  (req,res) => {
+    productEditId: async (req,res) => {
         let id = req.query.id
-        let productToEdit = productsdb.find(product => product.id==req.query.id);
+        let productToEdit = await DB.Product.findByPk(id)
+        // products.find(product => product.id==req.query.id);
         res.render('product-edit-form',{id,productToEdit,collections,csspath,compare:"/stylesheets/product-edit-form-style.css"});
     },
     delete:async(req,res)=>{
         let deleteid=req.params.id
-        // let newDataBase=productsdb.filter(product=>product.id!=deleteid)
-        // let newdataBaseJS=JSON.stringify(newDataBase, null, 2)
-        // fs.writeFileSync(productsdbFilePath,newdataBaseJS);
         DB.Product.destroy({where:{
             id:deleteid
         }})

@@ -17,13 +17,25 @@ module.exports= function(sequelize,DataTypes){
             imageb:DataTypes.STRING,
             imagec:DataTypes.STRING,
             imaged:DataTypes.STRING,
+            cost:DataTypes.INTEGER,
+            sku:DataTypes.STRING
         },
        
         {
            
+            tableName:"products",
             timestamps:false,
 
         }
     );
+    product.associate = function(models){
+        product.belongsToMany(models.category, {
+            as: "categories",
+            through: "categories_products",
+            foreignKey: "categories_id",
+            timestamps: false
+
+        })
+    }
     return product
 }
