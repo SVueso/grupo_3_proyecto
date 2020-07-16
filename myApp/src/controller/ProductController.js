@@ -7,16 +7,21 @@ const usersFilePath = './src/data/users.json';
 
 const DB = require('../database/models');
 
-function getAllUsers() {
-    let usersFileContent = fs.readFileSync(usersFilePath, 'utf-8');
-    let users = usersFileContent != '' ? JSON.parse(usersFileContent) : [];
-    return users;
+async function getAllUsers() {
+        let users= await DB.User.findAll()
+    // let usersFileContent = fs.readFileSync(usersFilePath, 'utf-8');
+    // let users = usersFileContent != '' ? JSON.parse(usersFileContent) : [];
+    return users[0];
 }
 
-function getUserinSession(id){
-    if(id){
-        let users = getAllUsers();
-        let theUser = users.find(user=> user.id==id);
+async function getUserinSession(idsession){
+    if(idsession){
+        // let users = getAllUsers();
+        // let theUser = users.find(user=> user.id==id);
+            let theUser = await DB.User.findOne({where:{
+                id:idsession
+            }})
+
         return theUser.first_name;
     }
     else{
@@ -46,7 +51,7 @@ const productController = {
         const prods = await DB.Product.findAll();
         console.log(prods);
 
-        let userName = getUserinSession(req.session.userId); 
+        let userName = await getUserinSession(req.session.userId); 
 
         res.render('home',{csspath,compare:"/stylesheets/style.css",productos:prods, categories,userName})
     },
@@ -61,12 +66,12 @@ const productController = {
 
         // var id=req.params.id;
         // var productDetail=productsdb.find(product=>product.id==id)
-        let userName = getUserinSession(req.session.userId); 
+        let userName = await getUserinSession(req.session.userId); 
 
         res.render('detalle',{csspath,compare:"/stylesheets/detalle.css", products,userName});
     },
     productos: async (req,res) => {
-        let userName = getUserinSession(req.session.userId);
+        let userName = await getUserinSession(req.session.userId);
         res.render('allProducts',{csspath,compare:"/stylesheets/style.css",productos:productsdb,userName})
     }
 };

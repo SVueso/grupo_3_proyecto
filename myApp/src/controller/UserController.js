@@ -43,7 +43,7 @@ async function getUserByEmail(userEmail) {
 
 async function getUserinSession(id){
     if(id){
-        let users = getAllUsers();
+       
         let theUser = await DB.User.findByPk(id)
         // users.find(user=> user.id==id);
         return theUser.first_name;
@@ -79,8 +79,10 @@ const userController = {
                 if(req.body.rememberMe){
                     res.cookie('userCookie',usuario.id,{maxAge:9999999999})
                 }
-                let userName = getUserinSession(req.session.userId); 
+                let userName = await getUserinSession(req.session.userId); 
                 res.render('home',{csspath,compare:"/stylesheets/style.css",productos:productsdb,userName})
+                // ESTO ESTA MAL, HAY QUE REDIRIGIRLO A /HOME, SINO SE QUEDA EN PROCESSLOGIN Y NO ESTA BIEN!
+
             } else {
                 res.render('login',{csspath,compare:"/stylesheets/style.css",message:"The username or password is incorrect"})
             }
