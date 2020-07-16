@@ -34,8 +34,8 @@ async function getAllUsers() {
 }
 
 async function getUserByEmail(userEmail) {
-    let allUsers= getAllUsers();
-    let theUser = await DB.User.findAll({where:{
+    
+    let theUser = await DB.User.findOne({where:{
         email:userEmail
     }})
     return theUser;
@@ -60,7 +60,7 @@ const userController = {
        
         res.render('login',{csspath,compare:'/stylesheets/register-login-style.css'})
     },
-    processLogin: (req,res) => {
+    processLogin: async (req,res) => {
         let validation = validationResult(req)
         // let errores = validation.errors
         console.log('los errores son: ');
@@ -71,8 +71,9 @@ const userController = {
             return res.render('login', {csspath,compare:'/stylesheets/register-login-style.css', errores: validation.errors});
         }
     
-        let usuario = getUserByEmail(req.body.email);
-
+        let usuario =  await getUserByEmail(req.body.email);
+            console.log(usuario,req.body.password);
+            
         if (usuario != undefined) {
             if (bcrypt.compareSync(req.body.password, usuario.password)){
 
@@ -151,9 +152,17 @@ const userController = {
     
 },
     profile: async (req,res)=>{
+<<<<<<< HEAD
 
         var id=req.session.userId;
         var user = await DB.User.findAll({where: {id: id}});
+=======
+        var id=req.session.userId;
+        const user = await DB.User.findAll({where:{
+            id:id
+        }});
+        
+>>>>>>> 00116034776c9b82d0a1be32bd7849c4affa85f3
         // var newUserdb=JSON.parse(fs.readFileSync(userPath,"utf-8"))
         // var userData=newUserdb.find(user=>user.id==id)
         // let userName = getUserinSession(req.session.userId); 
