@@ -268,5 +268,22 @@
     "password": "$2a$10$QgNXovmY4GXl..W9RDw4wuXwe1GZng5ScTP.vp4MHBWS.Jxrese3u",
     "password2": "$2a$10$z8NQwU51WTDK1PsmNTlOf.z/YLF37NOox11pWrp3CeDWMRPmj/3Ae",
     "image": []
+  },
+  {
+    "id": 17,
+    "first_name": "Sebastian",
+    "last_name": "Vueso",
+    "email": "seb@vue.so",
+    "telephone": "1234556",
+    "address": "Amado Boudou",
+    "number": "1521",
+    "state": "arkansas",
+    "country": "Argentina",
+    "zipcode": "1234",
+    "password": "$2a$10$/hTlPS10eWAev4m5hPZtJ.fV69Bq5oPgW.zFoRcfOO9HGMlzfqCyq",
+    "password2": "$2a$10$tWeuUARwGCVAn1KOfcbHxu7TW48Yjd9kheyiiuqZD8zYAWht6Krxm",
+    "image": [
+      "userAvatar-1594903726952.jpg"
+    ]
   }
 ]

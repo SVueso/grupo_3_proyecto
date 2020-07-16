@@ -10,10 +10,13 @@ module.exports= function(sequelize,DataTypes){
                 primaryKey:true},
             title:DataTypes.STRING,
             price:DataTypes.INTEGER,
-            discount:DataTypes.STRING,
+            discount:DataTypes.INTEGER,
             image:DataTypes.STRING,
             description:DataTypes.STRING,
             stock:DataTypes.INTEGER,
+            imageb:DataTypes.STRING,
+            imagec:DataTypes.STRING,
+            imaged:DataTypes.STRING,
         },
        
         {

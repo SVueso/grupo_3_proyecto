@@ -55,17 +55,13 @@ async function getUserinSession(id){
 
 const userController = {
 // CREAR VARIABLE EN EL CONTROLLER PARA PODER PASARLE A LA VISTA Y COMPARAR LAS VISTAS PARA EJECUTAR LA CORRECTA
-    login:(req,res)=>{
-        
-       
+    login:(req,res)=>{     
         res.render('login',{csspath,compare:'/stylesheets/register-login-style.css'})
     },
+
     processLogin: async (req,res) => {
         let validation = validationResult(req)
-        // let errores = validation.errors
-        console.log('los errores son: ');
-        console.log(validation);
-        // if (errores != '') 
+        
         if(!validation.isEmpty())
         {   
             return res.render('login', {csspath,compare:'/stylesheets/register-login-style.css', errores: validation.errors});
@@ -96,33 +92,27 @@ const userController = {
        
         res.render('register',{csspath,compare:'/stylesheets/register-login-style.css'})
     },
-    registerSave: (req,res)=>{
+    registerSave: async (req,res)=>{
         
-        
-        let validation= validationResult(req)
-        
-        
-        
+        let validation= validationResult(req)     
+
         if(!validation.isEmpty()){
            var errors=validation.errors
            console.log(errors)
            
            return res.render('register',{errors:errors,csspath,compare:'/stylesheets/register-login-style.css'})
         }else{
-
         
-        
-            let userAvatar = [];
+            let userAvatar = "";
             if(req.files!=undefined){
                 req.files.forEach(file => {
-                    userAvatar.push(file.filename)
+                    userAvatar=(file.filename)
                 });
             }else{
-                userAvatar.push("nopicture.jpeg")
+                userAvatar="nopicture.jpeg"
             }
-            
-            let newUser={
-                id: userdb.length > 0 ? userdb[userdb.length-1].id+1 : 1,
+
+            DB.User.create({
                 first_name:req.body.firstname,
                 last_name:req.body.lastname,
                 email: req.body.email,
@@ -135,14 +125,35 @@ const userController = {
                 password:bcrypt.hashSync(req.body.password,10),
                 password2:bcrypt.hashSync(req.body.password2,10),
                 image: userAvatar
+            });
+
+            let newUser = await DB.User.findOne({
+                where:{
+                    email: req.body.email
                 }
+            })
             
+            // let newUser={
+            //     id: userdb.length > 0 ? userdb[userdb.length-1].id+1 : 1,
+            //     first_name:req.body.firstname,
+            //     last_name:req.body.lastname,
+            //     email: req.body.email,
+            //     telephone:req.body.telephone,
+            //     address:req.body.address,
+            //     number:req.body.addressnumber,
+            //     state:req.body.state,
+            //     country:req.body.country ,
+            //     zipcode:req.body.zipcode,
+            //     password:bcrypt.hashSync(req.body.password,10),
+            //     password2:bcrypt.hashSync(req.body.password2,10),
+            //     image: userAvatar
+            //     }
+            
+            // let newDB=[...userdb,newUser]
+            // // console.log(newDB);
+            // fs.writeFileSync(userPath,JSON.stringify(newDB,null,2))
+
             req.session.userId = newUser.id;
-            let newDB=[...userdb,newUser]
-            // console.log(newDB);
-            fs.writeFileSync(userPath,JSON.stringify(newDB,null,2))
-                
-            
 
             if(req.body.rememberMe){
                 res.cookie('userCookie',newUser.id,{maxAge:9999999999})
@@ -152,25 +163,16 @@ const userController = {
     
 },
     profile: async (req,res)=>{
-<<<<<<< HEAD
 
-        var id=req.session.userId;
-        var user = await DB.User.findAll({where: {id: id}});
-=======
-        var id=req.session.userId;
-        const user = await DB.User.findAll({where:{
-            id:id
-        }});
-        
->>>>>>> 00116034776c9b82d0a1be32bd7849c4affa85f3
+        let idEnSession=req.session.userId;
+        let user = await DB.User.findAll({raw: true, where: {id: idEnSession}});
         // var newUserdb=JSON.parse(fs.readFileSync(userPath,"utf-8"))
         // var userData=newUserdb.find(user=>user.id==id)
         // let userName = getUserinSession(req.session.userId); 
-
-        res.send(user)
-        res.render('users/profile',{csspath,compare:"/stylesheets/profile.css", user})
-        // res.send(user);
-        console.log(user);
+        console.log("Esta es la info del user: ");
+        console.log(user[0]);
+        return res.render('users/profile',{csspath,compare:"/stylesheets/profile.css", user:user[0]})
+        
         // user:userData,title:"Welcome "+userData.first_name,userName, 
         },
     logout:(req,res)=>{

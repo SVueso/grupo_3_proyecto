@@ -26,14 +26,21 @@
                     <img src="/images/products/<%= products.image%> " alt="">
                     </div>
                     <div class="other-img-box">
-                        
+                        <% if (products.imageb!=null) { %>
                             <div class="other-img">
-                                <img src="/images/products/<%= products.image %> " alt="">
-                            </div>
-
-
-                        
-                        
+                                <img src="/images/products/<%= products.imageb %> " alt="">
+                            </div>                         
+                        <% } %>
+                        <% if (products.imagec!=null) { %>
+                            <div class="other-img">
+                                <img src="/images/products/<%= products.imagec %> " alt="">
+                            </div>                         
+                        <% } %>
+                        <% if (products.imaged!=null) { %>
+                            <div class="other-img">
+                                <img src="/images/products/<%= products.imaged %> " alt="">
+                            </div>                         
+                        <% } %>                          
                     </div>
                 </div>
                     <div class="product-box">

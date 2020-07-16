@@ -5,7 +5,6 @@ let products = fs.readFileSync(productsdbFilePath, 'utf-8') || "[]";
 let productsdb = JSON.parse(products);
 const usersFilePath = './src/data/users.json';
 
-const Sequelize = require('sequelize');
 const DB = require('../database/models');
 
 function getAllUsers() {
@@ -44,24 +43,27 @@ const productController = {
     home: async (req,res)=>{
 
         const categories = await DB.Category.findByPk(req.session.userId);
+        const prods = await DB.Product.findAll();
+        console.log(prods);
 
-        // let userName = getUserinSession(req.session.userId); 
+        let userName = getUserinSession(req.session.userId); 
 
-        res.render('home',{csspath,compare:"/stylesheets/style.css",productos:productsdb, categories})
+        res.render('home',{csspath,compare:"/stylesheets/style.css",productos:prods, categories,userName})
     },
     detalle: async (req,res)=>{
+        
+        // DB.Product.findByPk(req.params.id)
+        // .then(data => {console.log(data);
+        // res.render('detalle',{csspath,compare:"/stylesheets/detalle.css", products:data});
+        // })
 
         const products = await DB.Product.findByPk(req.params.id);
+
         // var id=req.params.id;
         // var productDetail=productsdb.find(product=>product.id==id)
-        // let userName = getUserinSession(req.session.userId); 
+        let userName = getUserinSession(req.session.userId); 
 
-        res.render('detalle',{csspath,compare:"/stylesheets/detalle.css", products});
-
-        // res.send(products)
-        // console.log(products.image);
-
-        // productDetail, userName,
+        res.render('detalle',{csspath,compare:"/stylesheets/detalle.css", products,userName});
     },
     productos: async (req,res) => {
         let userName = getUserinSession(req.session.userId);

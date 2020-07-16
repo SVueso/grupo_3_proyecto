@@ -59,6 +59,7 @@ router.post("/registerdata",upload.any(),[
   .not().isEmpty().withMessage('Enter a valid Country')
   .trim()
  ],userController.registerSave)
+ 
 router.post("/processLogin",[
     check('email')
     .isEmail()

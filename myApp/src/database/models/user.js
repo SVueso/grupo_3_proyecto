@@ -10,6 +10,7 @@ module.exports= function(sequelize,DataTypes){
                 primaryKey:true},
             first_name:DataTypes.STRING,
             last_name:DataTypes.STRING,
+            email:DataTypes.STRING,
             password:DataTypes.STRING,
             password2:DataTypes.STRING,
             telephone:DataTypes.STRING,
@@ -19,9 +20,6 @@ module.exports= function(sequelize,DataTypes){
             state:DataTypes.STRING,
             country:DataTypes.STRING,
             image:DataTypes.STRING,
-           
-            
-
         },
         
         {
