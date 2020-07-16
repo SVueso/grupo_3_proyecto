@@ -24,5 +24,6 @@ router.get("/product-edit",adminController.productEdit);
 router.get("/product-edit-id",adminController.productEditId);
 router.put("/editProduct/:id",upload.any(),adminController.editProduct)
 router.post("/delete/:id",adminController.delete)
+router.get("/test",adminController.test);
 
 module.exports = router;

@@ -1,5 +1,5 @@
 module.exports= function(sequelize,DataTypes){
-    const product = sequelize.define(
+    const Product = sequelize.define(
         // primer parametro, nombre
         'Product',
         // segundo, un objeto literal aclarando los valores de los datos
@@ -28,14 +28,15 @@ module.exports= function(sequelize,DataTypes){
 
         }
     );
-    product.associate = function(models){
-        product.belongsToMany(models.category, {
+    Product.associate = function(models){
+        Product.belongsToMany(models.Category, {
             as: "categories",
             through: "categories_products",
-            foreignKey: "categories_id",
+            foreignKey: "products_id",
+            otherKey:"categories_id",
             timestamps: false
 
         })
     }
-    return product
+    return Product
 }

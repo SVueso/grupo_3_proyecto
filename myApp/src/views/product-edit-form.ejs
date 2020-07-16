@@ -18,7 +18,7 @@
         <p>
             <label for="productName"> 
                 <h3>Product Name:</h3></label>
-            <input  type="text" id="productName" name="productName" value ="<%= productToEdit.name %>">
+            <input  type="text" id="productName" name="productName" value ="<%= productToEdit.title %>">
         </p>
         <p>
             <label for="productDescription">
@@ -46,10 +46,14 @@
         </p>
         <h3>Collection:</h3>
 
-        <select name="collection" id=""  multiple size="4">
-            <% collections.forEach(col => { %>
-                <option value="<%= col.id%>" <%=productToEdit.collection.includes(col.id.toString()) ? "selected" : " " %> > 
-                    <%= col.name %> </option>             
+        <select name="categories" id=""  multiple size="4">
+            <% categories.forEach(category => { %>
+                <% if (productToEdit.categories.some(productCategory => productCategory.id == category.id)) { %>
+                    <option value="<%= category.id%>" selected>  <%= category.title %> </option>  
+                <% } else { %>
+                    <option value="<%= category.id%>" >  <%= category.title %> </option>  
+                <% } %>
+                           
             <% }) %>
         </select>
 

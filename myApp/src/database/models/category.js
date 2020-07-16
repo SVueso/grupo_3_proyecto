@@ -8,8 +8,8 @@ module.exports= function(sequelize,DataTypes){
                 type:DataTypes.INTEGER,
                 autoincrement: true,
                 primaryKey:true},
-            title:DataTypes.STRING,
-            image:DataTypes.STRING
+                title:DataTypes.STRING,
+                image:DataTypes.STRING
         },
         
         {
@@ -19,10 +19,11 @@ module.exports= function(sequelize,DataTypes){
         }
     );
     Category.associate = function(models){
-        Category.belongsToMany(models.products, {
+        Category.belongsToMany(models.Product, {
             as: "products",
             through: "categories_products",
-            foreignKey: "products_id",
+            foreignKey: "categories_id",
+            otherKey:"products_id",
             timestamps: false
 
         })
