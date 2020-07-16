@@ -151,17 +151,9 @@ const userController = {
     
 },
     profile: async (req,res)=>{
-<<<<<<< HEAD
-        var id=req.session.userId;
-        const user = await DB.User.findAll({where:{
-            id:id
-        }});
-        
-=======
 
         var id=req.session.userId;
         var user = await DB.User.findAll({where: {id: id}});
->>>>>>> 021c97ca476d18cd0114f6b8f9593332e0b45a4f
         // var newUserdb=JSON.parse(fs.readFileSync(userPath,"utf-8"))
         // var userData=newUserdb.find(user=>user.id==id)
         // let userName = getUserinSession(req.session.userId); 
