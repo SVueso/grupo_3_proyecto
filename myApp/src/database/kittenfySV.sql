@@ -41,31 +41,30 @@ INSERT INTO `categories` VALUES (1,'Toys','Toys.jpg'),(2,'Costumes','Costume.jpg
 UNLOCK TABLES;
 
 --
--- Table structure for table `categories_products`
+-- Table structure for table `category_product`
 --
 
-DROP TABLE IF EXISTS `categories_products`;
+DROP TABLE IF EXISTS `category_product`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `categories_products` (
+CREATE TABLE `category_product` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `categories_id` int(11) NOT NULL,
-  `products_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`,`categories_id`,`products_id`),
-  KEY `fk_Categories_has_Productos_Categories_idx` (`categories_id`),
-  KEY `fk_Categories_Products_Products1_idx` (`products_id`),
-  CONSTRAINT `fk_Categories_Products_Categories` FOREIGN KEY (`categories_id`) REFERENCES `categories` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Categories_Products_Products1` FOREIGN KEY (`products_id`) REFERENCES `products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `category_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`,`category_id`,`product_id`),
+  KEY `fk_Categories_has_Productos_Categories_idx` (`category_id`),
+  KEY `fk_Categories_Products_Products1_idx` (`product_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `categories_products`
+-- Dumping data for table `category_product`
 --
 
-LOCK TABLES `categories_products` WRITE;
-/*!40000 ALTER TABLE `categories_products` DISABLE KEYS */;
-/*!40000 ALTER TABLE `categories_products` ENABLE KEYS */;
+LOCK TABLES `category_product` WRITE;
+/*!40000 ALTER TABLE `category_product` DISABLE KEYS */;
+INSERT INTO `category_product` VALUES (1,3,3),(2,3,4),(3,3,5),(4,4,4),(5,4,5),(6,6,3),(7,2,3),(29,2,0),(30,3,0),(31,4,0),(32,2,0),(33,4,0),(34,2,0),(35,3,0),(36,4,0),(54,2,25),(55,3,25),(56,9,28);
+/*!40000 ALTER TABLE `category_product` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -86,8 +85,10 @@ CREATE TABLE `products` (
   `imageb` varchar(45) DEFAULT NULL,
   `imagec` varchar(45) DEFAULT NULL,
   `imaged` varchar(45) DEFAULT NULL,
+  `cost` int(11) DEFAULT NULL,
+  `sku` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -96,7 +97,7 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (3,'Flopping Fish Cat Toy',30,25,'productImages-1591974160796.png','Self Moving.The FIRST Flopping Fish Cat Toy that moves on its own! This Floppy Fish Cat Toy will keep your kitty entertained for hours with its wagging and dancing moves.,',12,'productImages-1591973659329.jpg','productImages-1591973659335.png','productImages-1591973683400.png'),(4,'Banana Cat Bed',62,50,'banana.jpeg','Your cat will, literally, go BANANAS over this bed. It\'s the perfect bed for YOUR KITTY! It will be its own soft, cozy & comfy spot',142,'productImages-1591974456496.jpg','productImages-1591974456517.jpg',NULL),(5,'Marshmallow Cat Bed',60,50,'productImages-1591976827009.jpg','Your Kitty is going to looove snuggling on this Super Comfy Marshmallow Bed!\r\nTreat your loved one with this luxurious, soft & comfy fake fur bed. ',41,'productImages-1591976827060.jpg','productImages-1591976827074.jpg','productImages-1591976827185.jpg'),(6,'Windmill Cat Toy',30,25,'productImages-1591987201776.jpg','THE NEW FIDGET SPINNER FOR CATS! \r\nThis Windmill Cat Toy spins just like a fidget spinner keeping cats entertained for hours!',31,'productImages-1591987201798.jpg','productImages-1591987201816.jpg','productImages-1591987201826.jpg'),(7,'Kitty Cartoon Tall Mug',18,4,'productImages-1591989444412.jpg','This purrfect Mug is just for YOU!\r\nStart you day with this pawsome Mug, having a warm sip of your favourite drink while watching this adorable kitty. The Kitty Cartoon Tall Mug will ensure that you\'ll start your day with the right paw.',31,'productImages-1591989444463.jpg',NULL,NULL),(8,'Double Cat Shelf',140,0,'productImages-1592185936147.jpg','Our Wood & Canvas Cat Double Shelf is the best way to fulfill your kitty’s climbing needs within the safety of your home. Designed for jumping, sleeping and playing, it’s everything your cat could wish for.',9,'doubleCatShelfb.jpg','doubleCatShelfc.jpg','doubleCatShelfd.jpg');
+INSERT INTO `products` VALUES (3,'Flopping Fish Cat Toy',30,25,'productImages-1591974160796.png','Self Moving.The FIRST Flopping Fish Cat Toy that moves on its own! This Floppy Fish Cat Toy will keep your kitty entertained for hours with its wagging and dancing moves.,',12,'productImages-1591973659329.jpg','productImages-1591973659335.png','productImages-1591973683400.png',NULL,NULL),(4,'Banana Cat Bed',62,50,'banana.jpeg','Your cat will, literally, go BANANAS over this bed. It\'s the perfect bed for YOUR KITTY! It will be its own soft, cozy & comfy spot',142,'productImages-1591974456496.jpg','productImages-1591974456517.jpg',NULL,NULL,NULL),(5,'Marshmallow Cat Bed',60,50,'productImages-1591976827009.jpg','Your Kitty is going to looove snuggling on this Super Comfy Marshmallow Bed!\r\nTreat your loved one with this luxurious, soft & comfy fake fur bed. ',41,'productImages-1591976827060.jpg','productImages-1591976827074.jpg','productImages-1591976827185.jpg',NULL,NULL),(6,'Windmill Cat Toy',30,25,'productImages-1591987201776.jpg','THE NEW FIDGET SPINNER FOR CATS! \r\nThis Windmill Cat Toy spins just like a fidget spinner keeping cats entertained for hours!',31,'productImages-1591987201798.jpg','productImages-1591987201816.jpg','productImages-1591987201826.jpg',NULL,NULL),(7,'Kitty Cartoon Tall Mug',18,4,'productImages-1591989444412.jpg','This purrfect Mug is just for YOU!\r\nStart you day with this pawsome Mug, having a warm sip of your favourite drink while watching this adorable kitty. The Kitty Cartoon Tall Mug will ensure that you\'ll start your day with the right paw.',31,'productImages-1591989444463.jpg',NULL,NULL,NULL,NULL),(8,'Double Cat Shelf',140,0,'productImages-1592185936147.jpg','Our Wood & Canvas Cat Double Shelf is the best way to fulfill your kitty’s climbing needs within the safety of your home. Designed for jumping, sleeping and playing, it’s everything your cat could wish for.',9,'doubleCatShelfb.jpg','doubleCatShelfc.jpg','doubleCatShelfd.jpg',NULL,NULL),(25,'Pelota Loca',123,12,'productImages-1594952727947.jpg','wbgsnbdsgbsfhngbfed\r\n            \r\n            ',12,'productImages-1594952727956.jpg','productImages-1594952727963.jpg','productImages-1594952727976.jpg',1,'vdwfefq'),(26,'wddqweveq',12,1,'productImages-1594953153468.jpg','advfqwvfe',12,'productImages-1594953153475.jpg','','',1,'dvdqv'),(27,'fvdqwvfqwvf',123,12,'productImages-1594953265985.jpg','fvdvfveqvfeq',12,'productImages-1594953265991.jpg','','',13,'fvdvfvfd'),(28,'Pelota Loca',1234,12,'productImages-1594961838991.jpg','Holis!            \r\n            \r\n            ',123,'','','',123,'1regefwe'),(29,'Este Anda Perfecto12',123,12,'productImages-1594954248218.jpg','Esta es la que va ameo!\r\n            \r\n            \r\n            \r\n            ',12,'productImages-1594954248223.jpg','productImages-1594954248230.jpg','',12,'vcewx');
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -144,4 +145,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-07-16 14:58:10
+-- Dump completed on 2020-07-17  2:04:41

@@ -29,28 +29,17 @@ const adminController = {
         res.render('admin', {csspath,compare:"/stylesheets/admin.css"});
     },
     productCreate: async(req,res)=>{
-        res.render('product-create-form',{csspath,compare:"/stylesheets/product-edit-form-style.css",collections})
-        res.redirect('/home')
+        let categories = await DB.Category.findAll();
+        res.render('product-create-form',{csspath,compare:"/stylesheets/product-edit-form-style.css",categories});
     },
     productStore: async (req,res) => {
         //Hago un array con todos los nombres de las imagenes cargadas
         let productImages = [];
         req.files.forEach(file => {
             productImages.push(file.filename)
-        });
-
-        //Nuevo producto a agregar a la db
-        let newProduct={
-            
-            // collection: req.body.collection,
-            // cost: req.body.cost,
-            // sku: req.body.sku,
-        };
-        // console.log(newProduct)
-        console.log(req.body)
+        })
         
-        try{
-           await DB.Product.create({
+        let newProduct = await DB.Product.create({
             title:req.body.productName,
             price: req.body.price,
             discount: req.body.discount,
@@ -61,29 +50,20 @@ const adminController = {
             description: req.body.productDescription,
             stock: req.body.stock,
             cost: req.body.cost,
-            sku: req.body.sku
+            sku: req.body.sku        
+        });
+        await newProduct.addCategories(req.body.categories) 
+        res.redirect('/')
         
-           })
-            res.redirect('/')
-        }
-        catch (error){
-            console.log('El error es:'+error)
-        }
 
-        // Agrego el producto a la db
-        // let newDB=[...productsdb,newProduct];
-        // fs.writeFileSync(productsdbFilePath,JSON.stringify(newDB,null,2));
-        // res.redirect("/admin");
-        // let updatedDB = JSON.parse(fs.readFileSync(productsdbFilePath, 'utf-8'));
-        // res.render("allProducts",{csspath,compare:"/stylesheets/style.css",productos:updatedDB});
     },
     editProduct: async (req,res) => {
-        // res.send(req.body)
+        //  res.send(req.body)
         
         let idToEdit=req.params.id
             if(req.files[0]==undefined){
                 try{
-                    DB.Product.update({
+                    await DB.Product.update({
                         
                     title:req.body.productName,
                     price: req.body.price,
@@ -95,8 +75,11 @@ const adminController = {
                     },{
                         where:{
                             id:idToEdit
-                        }
-                    })
+                        }   
+                    });
+                    let ModProduct = await DB.Product.findByPk(idToEdit);
+                    await DB.category_product.destroy({where:{product_id:idToEdit}})
+                    await ModProduct.addCategories(req.body.categories) 
                 } catch(error){
                 console.log("el error es: "+ error);
                 
@@ -104,7 +87,7 @@ const adminController = {
             } 
             else {
                 try{
-                   let newProduct = await DB.Product.update({
+                    await DB.Product.update({
                         
                     title:req.body.productName,
                     price: req.body.price,
@@ -122,8 +105,9 @@ const adminController = {
                             id:idToEdit
                         }
                     })
-                    await newProduct.removeCategories(req.body.categories,{through:{title}})
-                    await newProduct.addCategories(req.body.categories,{through:{title:req.body.categories}})
+                    let ModProduct = await DB.Product.findByPk(idToEdit);
+                    await DB.category_product.destroy({where:{product_id:idToEdit}})
+                    await ModProduct.addCategories(req.body.categories) 
                 }
                 catch(error){
                     console.log("el error es: "+ error);

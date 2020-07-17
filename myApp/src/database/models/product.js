@@ -6,7 +6,7 @@ module.exports= function(sequelize,DataTypes){
         {
             id:{
                 type:DataTypes.INTEGER,
-                autoincrement: true,
+                autoIncrement: true,
                 primaryKey:true},
             title:DataTypes.STRING,
             price:DataTypes.INTEGER,
@@ -31,9 +31,9 @@ module.exports= function(sequelize,DataTypes){
     Product.associate = function(models){
         Product.belongsToMany(models.Category, {
             as: "categories",
-            through: "categories_products",
-            foreignKey: "products_id",
-            otherKey:"categories_id",
+            through: "category_product",
+            foreignKey: "product_id",
+            otherKey:"category_id",
             timestamps: false
 
         })

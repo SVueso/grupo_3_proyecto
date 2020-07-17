@@ -40,9 +40,9 @@
                 </div>              
         </p>
         <h3>Collection:</h3>
-        <select name="collection"  multiple size="4">
-            <% collections.forEach(col => { %>
-                <option value="<%= col.id%>"><%= col.name %> </option>             
+        <select name="categories"  multiple size="4">
+            <% categories.forEach(category => { %>
+                <option value="<%= category.id%>"><%= category.title %> </option>             
             <% }) %>
         </select>
         
