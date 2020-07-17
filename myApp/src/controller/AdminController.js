@@ -78,59 +78,61 @@ const adminController = {
         // res.render("allProducts",{csspath,compare:"/stylesheets/style.css",productos:updatedDB});
     },
     editProduct: async (req,res) => {
-        res.send(req.body)
+        // res.send(req.body)
         
-    //     let idToEdit=req.params.id
-    //         if(req.files[0]==undefined){
-    //             try{
-    //                 DB.Product.update({
+        let idToEdit=req.params.id
+            if(req.files[0]==undefined){
+                try{
+                    DB.Product.update({
                         
-    //                 title:req.body.productName,
-    //                 price: req.body.price,
-    //                 discount: req.body.discount,
-    //                 description: req.body.productDescription,
-    //                 stock: req.body.stock,
-    //                 cost: req.body.cost,
-    //                 sku: req.body.sku   
-    //                 },{
-    //                     where:{
-    //                         id:idToEdit
-    //                     }
-    //                 })
-    //             } catch(error){
-    //             console.log("el error es: "+ error);
+                    title:req.body.productName,
+                    price: req.body.price,
+                    discount: req.body.discount,
+                    description: req.body.productDescription,
+                    stock: req.body.stock,
+                    cost: req.body.cost,
+                    sku: req.body.sku   
+                    },{
+                        where:{
+                            id:idToEdit
+                        }
+                    })
+                } catch(error){
+                console.log("el error es: "+ error);
                 
-    //         }
-    //         } 
-    //         else {
-    //             try{
-    //                 DB.Product.update({
+            }
+            } 
+            else {
+                try{
+                   let newProduct = await DB.Product.update({
                         
-    //                 title:req.body.productName,
-    //                 price: req.body.price,
-    //                 discount: req.body.discount,
-    //                 image: req.files[0]==undefined?"":req.files[0].filename,
-    //                 imageb: req.files[1]==undefined?"":req.files[1].filename,
-    //                 imagec: req.files[2]==undefined?"":req.files[2].filename,
-    //                 imaged: req.files[3]==undefined?"":req.files[3].filename,
-    //                 description: req.body.productDescription,
-    //                 stock: req.body.stock,
-    //                 cost: req.body.cost,
-    //                 sku: req.body.sku   
-    //                 },{
-    //                     where:{
-    //                         id:idToEdit
-    //                     }
-    //                 })
-    //             }
-    //             catch(error){
-    //                 console.log("el error es: "+ error);
+                    title:req.body.productName,
+                    price: req.body.price,
+                    discount: req.body.discount,
+                    image: req.files[0]==undefined?"":req.files[0].filename,
+                    imageb: req.files[1]==undefined?"":req.files[1].filename,
+                    imagec: req.files[2]==undefined?"":req.files[2].filename,
+                    imaged: req.files[3]==undefined?"":req.files[3].filename,
+                    description: req.body.productDescription,
+                    stock: req.body.stock,
+                    cost: req.body.cost,
+                    sku: req.body.sku   
+                    },{
+                        where:{
+                            id:idToEdit
+                        }
+                    })
+                    await newProduct.removeCategories(req.body.categories,{through:{title}})
+                    await newProduct.addCategories(req.body.categories,{through:{title:req.body.categories}})
+                }
+                catch(error){
+                    console.log("el error es: "+ error);
                     
-    //             }
-    //         }
-    //         let products= await DB.Product.findAll()
-    //         console.log(products)
-    //         res.render('home',{csspath,compare:"/stylesheets/style.css",productos:products[0]})
+                }
+            }
+            let products= await DB.Product.findAll()
+            // console.log(products)
+            res.render('home',{csspath,compare:"/stylesheets/style.css",productos:products})
         
     },
     productEdit: async (req,res) => {

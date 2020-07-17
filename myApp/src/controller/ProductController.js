@@ -52,7 +52,7 @@ const productController = {
         console.log(prods);
 
         let userName = await getUserinSession(req.session.userId); 
-
+        // res.send(prods)
         res.render('home',{csspath,compare:"/stylesheets/style.css",productos:prods, categories,userName})
     },
     detalle: async (req,res)=>{
@@ -72,7 +72,8 @@ const productController = {
     },
     productos: async (req,res) => {
         let userName = await getUserinSession(req.session.userId);
-        res.render('allProducts',{csspath,compare:"/stylesheets/style.css",productos:productsdb,userName})
+        let productos= await DB.Product.findAll()
+        res.render('allProducts',{csspath,compare:"/stylesheets/style.css",productos,userName})
     }
 };
 module.exports = productController

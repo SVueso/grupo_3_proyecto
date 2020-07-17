@@ -115,7 +115,7 @@ const userController = {
                 userAvatar="nopicture.jpeg"
             }
 
-            DB.User.create({
+            await DB.User.create({
                 first_name:req.body.firstname,
                 last_name:req.body.lastname,
                 email: req.body.email,

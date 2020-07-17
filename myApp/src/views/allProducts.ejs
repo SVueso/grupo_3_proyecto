@@ -11,18 +11,18 @@
             <a class="productoADetalle" href="/detalle/<%= producto.id %>">
         <div class="producto productoAll">
         <div class="imagenAll">
-           <img src="/images/products/<%= producto.images[1] %>" alt="" class="imagenAll" style="height: auto;;">
+           <img src="/images/products/<%= producto.image %>" alt="" class="imagenAll" style="height: auto;;">
         </div>
            <% if (producto.discount > 0) { %>
             <div class="on-sale"><b>Sale</b></div>
-            <div><%= producto.name %></div>
+            <div><%= producto.title %></div>
            <div>-</div>
            <div class="money">$<%= ((producto.price)-(producto.price)*(producto.discount/100)) %></div>
             <div class="comparePrice">
                 <div class="money">$<%= producto.price %></div>
                </div>
            <% } else { %>
-           <div><%= producto.name %></div>
+           <div><%= producto.title %></div>
            <div>-</div>
            <div class="money"><%= producto.price %></div>
            <% } %>
