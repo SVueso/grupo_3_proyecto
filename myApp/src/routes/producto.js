@@ -20,6 +20,7 @@ router.get("/",productController.index);
 router.get("/home",productController.home);
 router.get("/detalle/:id",productController.detalle);
 router.get("/allProducts", productController.productos);
+router.get("/collections/:id",productController.collections)
 
 
 module.exports = router;

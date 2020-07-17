@@ -21,12 +21,15 @@
       <hr class="hr--small">
     </div>
     <div class="productos">  
+      <% let count = 1; %>
       <% productos.forEach(producto => { %>  
+      <% if(count <= 6) {%>
         <a class="productoADetalle" href="/detalle/<%= producto.id %>">
-    <div class="producto productoAll">
-    <div class="imagenAll">
+      <div class="producto productoAll">
+        <div class="imagenAll">
        <img src="/images/products/<%= producto.image %>" alt="" class="imagenAll" style="height: auto;;">
     </div>
+      <%  count++; %>
        <% if (producto.discount > 0) { %>
         <div class="on-sale"><b>Sale</b></div>
         <div><%= producto.title %></div>
@@ -42,7 +45,7 @@
        <% } %>
     </div>
 </a>
-    <% }) %>
+    <% }}) %>
     </div>
       <!-- <div class="producto">
         <div>
@@ -120,7 +123,7 @@
       <div>
     </div>
   <div class="productos">
-    <a href="">
+    <a href="/collections/8">
       <div class="recuadro">
         <img src="/images/FeaturedCollections/CatShelves.jpg" class="imagenFC" alt="">
         <div class="titles">
@@ -128,7 +131,7 @@
         </div>
       </div>
     </a>
-    <a href="">
+    <a href="/collections/7">
       <div class="recuadro">
         <img src="/images/FeaturedCollections/BananaCatBed.jpg" class="imagenFC" alt="">
         <div class="titles">
@@ -136,7 +139,7 @@
         </div>
       </div>
     </a>
-    <a href="">
+    <a href="/collections/3">
       <div class="recuadro">
         <img src="/images/FeaturedCollections/Sale.jpg" class="imagenFC" alt="">
         <div class="titles">
@@ -144,7 +147,7 @@
         </div>
       </div>
     </a>
-    <a href="">
+    <a href="/collections/1">
       <div class="recuadro">
         <img src="/images/FeaturedCollections/Toys.png" class="imagenFC" alt="">
         <div class="titles">
@@ -152,7 +155,7 @@
         </div>
       </div>
     </a>
-    <a href="">
+    <a href="/collections/9">
       <div class="recuadro">
         <img src="/images/FeaturedCollections/Leggings.jpg" class="imagenFC" alt="">
         <div class="titles">
@@ -160,7 +163,7 @@
         </div>
       </div>
     </a>
-    <a href="">
+    <a href="/collections/4">
       <div class="recuadro">
         <img src="/images/FeaturedCollections/Socks-Gloves.jpg" class="imagenFC" alt="">
         <div class="titles">
@@ -168,7 +171,7 @@
         </div>
       </div>
     </a>
-    <a href="">
+    <a href="/collections/6">
       <div class="recuadro">
         <img src="/images/FeaturedCollections/Jewelry.jpg" class="imagenFC" alt="">
         <div class="titles">
@@ -176,7 +179,7 @@
         </div>
       </div>
     </a>
-    <a href="">
+    <a href="/collections/2">
       <div class="recuadro">
         <img src="/images/FeaturedCollections/Costumes.jpg" class="imagenFC" alt="">
         <div class="titles">
@@ -184,7 +187,7 @@
         </div>
       </div>
     </a>
-    <a href="">
+    <a href="/collections/5">
       <div class="recuadro">
         <img src="/images/FeaturedCollections/T-Shirts.jpg" class="imagenFC" alt="">
         <div class="titles">

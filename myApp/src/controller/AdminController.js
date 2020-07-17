@@ -59,8 +59,9 @@ const adminController = {
     },
     editProduct: async (req,res) => {
         //  res.send(req.body)
-        
         let idToEdit=req.params.id
+        // let oldCategories = await DB.Product.findByPk(idToEdit).categories;
+        
             if(req.files[0]==undefined){
                 try{
                     await DB.Product.update({
@@ -79,7 +80,8 @@ const adminController = {
                     });
                     let ModProduct = await DB.Product.findByPk(idToEdit);
                     await DB.category_product.destroy({where:{product_id:idToEdit}})
-                    await ModProduct.addCategories(req.body.categories) 
+                    // await ModProduct.removeCategories(oldCategories);
+                    await ModProduct.addCategories(req.body.categories);
                 } catch(error){
                 console.log("el error es: "+ error);
                 
@@ -127,20 +129,29 @@ const adminController = {
         let id = req.query.id
         let productToEdit = await DB.Product.findByPk(id,{include:{all:true}})
         let categories = await DB.Category.findAll();
-        // return res.send(categories);
-        // products.find(product => product.id==req.query.id);
         res.render('product-edit-form',{id,productToEdit,categories,csspath,compare:"/stylesheets/product-edit-form-style.css"});
     },
     delete:async(req,res)=>{
         let deleteid=req.params.id
-        DB.Product.destroy({where:{
-            id:deleteid
-        }})
+        await DB.Product.destroy({where:{id:deleteid}});
+        await DB.category_product.destroy({where:{product_id:deleteid}})
         res.redirect('/admin')
     },
     test: async (req,res)=>{
-        let test = await DB.Product.findAll({include:{all:true}})
-        res.send(test);
+
+        let id = 1;
+        // let userName = await getUserinSession(req.session.userId);
+        let productos= await DB.Product.findAll({include: {all:true}});
+        // res.send(productos);
+        let productosFiltrados= productos.filter((producto)=>{
+            return producto.categories.some(productCategory =>  productCategory.id==id)            
+        })
+
+        res.send(productosFiltrados);
+
+
+        // let test = await DB.Product.findAll({include:{all:true}})
+        // res.send(test);
     }
 };
 module.exports = adminController

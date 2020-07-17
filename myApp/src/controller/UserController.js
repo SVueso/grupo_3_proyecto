@@ -3,11 +3,11 @@ const path = require('path');
 const { dirname } = require('path');
 const bcrypt = require('bcryptjs')
 
-var userPath=path.join(__dirname,"../data/users.json")
-var userdb=JSON.parse(fs.readFileSync(userPath,"utf-8"))
-let productsdbFilePath = path.join(__dirname, '../data/products.json');
-let products = fs.readFileSync(productsdbFilePath, 'utf-8') || "[]";
-let productsdb = JSON.parse(products);
+// var userPath=path.join(__dirname,"../data/users.json")
+// var userdb=JSON.parse(fs.readFileSync(userPath,"utf-8"))
+// let productsdbFilePath = path.join(__dirname, '../data/products.json');
+// let products = fs.readFileSync(productsdbFilePath, 'utf-8') || "[]";
+// let productsdb = JSON.parse(products);
 
 const DB = require('../database/models');
 
@@ -53,6 +53,7 @@ async function getUserinSession(id){
     }
 }
 
+
 const userController = {
 // CREAR VARIABLE EN EL CONTROLLER PARA PODER PASARLE A LA VISTA Y COMPARAR LAS VISTAS PARA EJECUTAR LA CORRECTA
     login:(req,res)=>{     
@@ -81,9 +82,9 @@ const userController = {
                 }
                 let userName = await getUserinSession(req.session.userId); 
                 res.redirect("/home")
-                // res.render('home',{csspath,compare:"/stylesheets/style.css",productos:productsdb,userName})
-                // ESTO ESTA MAL, HAY QUE REDIRIGIRLO A /HOME, SINO SE QUEDA EN PROCESSLOGIN Y NO ESTA BIEN!
-
+                // let productos = await DB.Product.findAll();
+                // res.render('home',{csspath,compare:"/stylesheets/style.css",productos,userName})
+                
             } else {
                 res.render('login',{csspath,compare:"/stylesheets/register-login-style.css",message:"The username or password is incorrect"})
             }
@@ -135,27 +136,6 @@ const userController = {
                     email: req.body.email
                 }
             })
-            
-            // let newUser={
-            //     id: userdb.length > 0 ? userdb[userdb.length-1].id+1 : 1,
-            //     first_name:req.body.firstname,
-            //     last_name:req.body.lastname,
-            //     email: req.body.email,
-            //     telephone:req.body.telephone,
-            //     address:req.body.address,
-            //     number:req.body.addressnumber,
-            //     state:req.body.state,
-            //     country:req.body.country ,
-            //     zipcode:req.body.zipcode,
-            //     password:bcrypt.hashSync(req.body.password,10),
-            //     password2:bcrypt.hashSync(req.body.password2,10),
-            //     image: userAvatar
-            //     }
-            
-            // let newDB=[...userdb,newUser]
-            // // console.log(newDB);
-            // fs.writeFileSync(userPath,JSON.stringify(newDB,null,2))
-
             req.session.userId = newUser.id;
 
             if(req.body.rememberMe){
@@ -168,15 +148,11 @@ const userController = {
     profile: async (req,res)=>{
 
         let idEnSession=req.session.userId;
-        let user = await DB.User.findAll({raw: true, where: {id: idEnSession}});
-        // var newUserdb=JSON.parse(fs.readFileSync(userPath,"utf-8"))
-        // var userData=newUserdb.find(user=>user.id==id)
-        // let userName = getUserinSession(req.session.userId); 
+        let user = await DB.User.findAll({raw: true, where: {id: idEnSession}}); 
         console.log("Esta es la info del user: ");
         console.log(user[0]);
         return res.render('users/profile',{csspath,compare:"/stylesheets/profile.css", user:user[0]})
         
-        // user:userData,title:"Welcome "+userData.first_name,userName, 
         },
     logout:(req,res)=>{
         req.session.destroy();

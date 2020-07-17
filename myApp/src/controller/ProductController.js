@@ -74,6 +74,16 @@ const productController = {
         let userName = await getUserinSession(req.session.userId);
         let productos= await DB.Product.findAll()
         res.render('allProducts',{csspath,compare:"/stylesheets/style.css",productos,userName})
-    }
+    },
+    collections: async (req,res) => {
+        let id = req.params.id;
+        let userName = await getUserinSession(req.session.userId);
+        let productos= await DB.Product.findAll({include: {all:true}});
+        let productosFiltrados= productos.filter((producto)=>{
+            return producto.categories.some(productCategory =>  productCategory.id==id)            
+        });
+        let category = await DB.Category.findByPk(req.params.id)
+        res.render('collections',{csspath,compare:"/stylesheets/style.css",productos:productosFiltrados, category, userName})
+    },
 };
 module.exports = productController
